@@ -385,7 +385,7 @@ $p->route(array('/media/uploads/(:num)','/media/uploads/(:num)/(:num)'),function
 
                   <div class="pull-right">
                     <div class="label label-primary">
-                        <b><i class="ti-folder"></i> : </b>  album_'.$id.'
+                        <b><i class="fa fa-folder-o"></i> : </b>  album_'.$id.'
                     </div>
                     <br>
                     <div class="label label-primary">
