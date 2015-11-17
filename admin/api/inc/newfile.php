@@ -358,9 +358,9 @@ $p->route(array('/media/uploads/(:num)','/media/uploads/(:num)/(:num)'),function
       rsort($scan);
       $showPag = array_chunk($scan, $per_page);
       if($offset > 1) {
-          $prev = '<a class="btn btn-primary" href="'.$p->Url().'/media/uploads/'.$id.'/'.($offset - 1).'"><i class="ti-arrow-left"></i></a>';
+          $prev = '<a class="btn btn-primary" href="'.$p->Url().'/media/uploads/'.$id.'/'.($offset - 1).'"><i class="fa fa-arrow-left"></i></a>';
       } else {
-          $prev = '<span class="btn black"><i class="ti-arrow-left"></i></span>';
+          $prev = '<span class="btn black"><i class="fa fa-arrow-left"></i></span>';
       }
       if($offset < ceil(count($scan) / $per_page)) {
           $next = '<a class="btn btn-primary" href="' . $p->Url().'/media/uploads/'.$id.'/'.($offset + 1).'"><i class="ti-arrow-right"></i></a>';
