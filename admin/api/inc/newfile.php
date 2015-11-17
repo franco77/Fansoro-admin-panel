@@ -363,9 +363,9 @@ $p->route(array('/media/uploads/(:num)','/media/uploads/(:num)/(:num)'),function
           $prev = '<span class="btn black"><i class="fa fa-arrow-left"></i></span>';
       }
       if($offset < ceil(count($scan) / $per_page)) {
-          $next = '<a class="btn btn-primary" href="' . $p->Url().'/media/uploads/'.$id.'/'.($offset + 1).'"><i class="ti-arrow-right"></i></a>';
+          $next = '<a class="btn btn-primary" href="' . $p->Url().'/media/uploads/'.$id.'/'.($offset + 1).'"><i class="fa fa-arrow-right"></i></a>';
       } else {
-          $next = '<span class="btn black"><i class="ti-arrow-right"></i></span>';
+          $next = '<span class="btn black"><i class="fa fa-arrow-right"></i></span>';
       }
 
 
