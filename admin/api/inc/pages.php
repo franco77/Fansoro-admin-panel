@@ -444,7 +444,7 @@ $p->route(array('/media','/media/(:num)'),function($offset = 1) use($p){
 					  <a class="btn btn-danger"
 					  onclick="return confirm(\''.Panel::$lang['Are_you_sure_to_delete'].' !\')"
 					  href="'.$p->Url().'/action/media/removefile/'.Token::generate().'/'.$media['id'].'"
-					  title="'.Panel::$lang['Remove_File'].'"><i class="ti-trash"></i></a>
+					  title="'.Panel::$lang['Remove_File'].'"><i class="fa fa-trash-o"></i></a>
 				  </li>
 				</ul>
 			  </div>
