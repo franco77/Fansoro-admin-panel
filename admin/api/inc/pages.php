@@ -440,7 +440,7 @@ $p->route(array('/media','/media/(:num)'),function($offset = 1) use($p){
 					  title="'.Panel::$lang['Edit_File'].'"><i class="ti-pencil-alt"></i></a>
 					  <a class="btn btn-warning"
 					  href="'.$p->Url().'/media/uploads/'.$media['id'].'"
-					  title="'.Panel::$lang['Upload_media'].'"><i class="ti-upload"></i></a>
+					  title="'.Panel::$lang['Upload_media'].'"><i class="fa fa-upload"></i></a>
 					  <a class="btn btn-danger"
 					  onclick="return confirm(\''.Panel::$lang['Are_you_sure_to_delete'].' !\')"
 					  href="'.$p->Url().'/action/media/removefile/'.Token::generate().'/'.$media['id'].'"
