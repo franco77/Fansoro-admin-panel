@@ -378,7 +378,7 @@ $p->route(array('/media/uploads/(:num)','/media/uploads/(:num)/(:num)'),function
                   <a href="#" class="btn btn-primary"
                   data-toggle="modal"
                   data-target="#uploadFile">
-                    <i class="ti-upload"></i>
+                    <i class="fa fa-upload"></i>
                     '.Panel::$lang['Upload'].'
                   </a>
                   <a href="'.$p->Url().'/media"  class="btn btn-danger">'.$p::$lang['Cancel'].'</a>
