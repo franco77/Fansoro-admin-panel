@@ -442,7 +442,7 @@ $p->route(array('/media/uploads/(:num)','/media/uploads/(:num)/(:num)'),function
             <div class="thumb">
               <a class="btn btn-danger" onclick="return confirm(\''.Panel::$lang['Are_you_sure_to_delete'].' !\')"
               href="'.$p->Url().'/action/media/uploads/removefile/'.$id.'/'.base64_encode($media).'">
-                <i class="ti-trash"></i>
+                <i class="fa fa-trash-o"></i>
               </a>
               <img src="'.$image.'" alt="'.File::name($media).'"/>
             </div>';
