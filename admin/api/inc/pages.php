@@ -167,9 +167,9 @@ $p->route(array('/pages','/pages/(:num)'),function($offset = 1) use($p){
           $prev = '<span class="btn black"><i class="fa fa-arrow-left"></i></span>';
       }
       if($offset < ceil(count($content) / $per_page)) {
-          $next = '<a  class="btn btn-primary" href="' . $p->Url().'/pages/'.($offset + 1).'"><i class="ti-arrow-right"></i></a>';
+          $next = '<a  class="btn btn-primary" href="' . $p->Url().'/pages/'.($offset + 1).'"><i class="fa fa-arrow-right"></i></a>';
       } else {
-          $next = '<span class="btn black"><i class="ti-arrow-right"></i></span>';
+          $next = '<span class="btn black"><i class="fa fa-arrow-right"></i></span>';
       }
       // show pages
       $p->view('pages',array(
@@ -241,9 +241,9 @@ $p->route(array('/blocks','/blocks/(:num)'),function($offset = 1) use($p){
           $prev = '<span class="btn black"><i class="fa fa-arrow-left"></i></span>';
       }
       if($offset < ceil(count($content) / $per_page)) {
-          $next = '<a class="btn btn-primary" href="' . $p->Url().'/blocks/'.($offset + 1).'"><i class="ti-arrow-right"></i></a>';
+          $next = '<a class="btn btn-primary" href="' . $p->Url().'/blocks/'.($offset + 1).'"><i class="fa fa-arrow-right"></i></a>';
       } else {
-          $next = '<span class="btn  black"><i class="ti-arrow-right"></i></span>';
+          $next = '<span class="btn  black"><i class="fa fa-arrow-right"></i></span>';
       }
       // show blocks
       $p->view('blocks',array(
@@ -330,9 +330,9 @@ $p->route(array('/uploads','/uploads/(:num)'),function($offset = 1) use($p){
           $prev = '<span class="btn black"><i class="fa fa-arrow-left"></i></span>';
       }
       if($offset < ceil(count($content) / $per_page)) {
-          $next = '<a  class="btn btn-primary" href="' . $p->Url().'/uploads/'.($offset + 1).'"><i class="ti-arrow-right"></i></a>';
+          $next = '<a  class="btn btn-primary" href="' . $p->Url().'/uploads/'.($offset + 1).'"><i class="fa fa-arrow-right"></i></a>';
       } else {
-          $next = '<span class="btn black"><i class="ti-arrow-right"></i></span>';
+          $next = '<span class="btn black"><i class="fa fa-arrow-rightt"></i></span>';
       }
 
       // show blocks
@@ -411,9 +411,9 @@ $p->route(array('/media','/media/(:num)'),function($offset = 1) use($p){
             $prev = '<span class="btn black"><i class="fa fa-arrow-left"></i></span>';
         }
         if($offset < ceil(count($json) / $per_page)) {
-            $next = '<a class="btn btn-primary" href="' . $p->Url().'/media/'.($offset + 1).'"><i class="ti-arrow-right"></i></a>';
+            $next = '<a class="btn btn-primary" href="' . $p->Url().'/media/'.($offset + 1).'"><i class="fa fa-arrow-right"></i></a>';
         } else {
-            $next = '<span class="btn black"><i class="ti-arrow-right"></i></span>';
+            $next = '<span class="btn black"><i class="fa fa-arrow-right"></i></span>';
         }
 
         // all media files
@@ -524,9 +524,9 @@ $p->route(array('/templates','/templates/(:num)'),function($offset = 1) use($p){
           $prev = '<span class="btn black"><i class="fa fa-arrow-left"></i></span>';
       }
       if($offset < ceil(count($content) / $per_page)) {
-          $next = '<a class="btn btn-primary" href="' . $p->Url().'/templates/'.($offset + 1).'"><i class="ti-arrow-right"></i></a>';
+          $next = '<a class="btn btn-primary" href="' . $p->Url().'/templates/'.($offset + 1).'"><i class="fa fa-arrow-right"></i></a>';
       } else {
-          $next = '<span class="btn black"><i class="ti-arrow-right"></i></span>';
+          $next = '<span class="btn black"><i class="fa fa-arrow-right"></i></span>';
       }
       // show pages
       $p->view('templates',array(
@@ -583,9 +583,9 @@ $p->route(array('/stylesheets','/stylesheets/(:num)'),function($offset = 1) use(
           $prev = '<span class="btn black"><i class="fa fa-arrow-left"></i></span>';
       }
       if($offset < ceil(count($content) / $per_page)) {
-          $next = '<a class="btn btn-primary" href="' . $p->Url().'/stylesheets/'.($offset + 1).'"><i class="ti-arrow-right"></i></a>';
+          $next = '<a class="btn btn-primary" href="' . $p->Url().'/stylesheets/'.($offset + 1).'"><i class="fa fa-arrow-right"></i></a>';
       } else {
-          $next = '<span class="btn black"><i class="ti-arrow-right"></i></span>';
+          $next = '<span class="btn black"><i class="fa fa-arrow-right"></i></span>';
       }
       // show pages
       $p->view('templates',array(
@@ -639,9 +639,9 @@ $p->route(array('/javascript','/javascript/(:num)'),function($offset = 1) use($p
           $prev = '<span class="btn black"><i class="fa fa-arrow-left"></i></span>';
       }
       if($offset < ceil(count($content) / $per_page)) {
-          $next = '<a class="btn btn-primary" href="' . $p->Url().'/javascript/'.($offset + 1).'"><i class="ti-arrow-right"></i></a>';
+          $next = '<a class="btn btn-primary" href="' . $p->Url().'/javascript/'.($offset + 1).'"><i class="fa fa-arrow-right"></i></a>';
       } else {
-          $next = '<span class="btn black"><i class="ti-arrow-right"></i></span>';
+          $next = '<span class="btn black"><i class="fa fa-arrow-right"></i></span>';
       }
       // show pages
       $p->view('templates',array(
