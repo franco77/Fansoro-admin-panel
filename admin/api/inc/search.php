@@ -41,7 +41,7 @@ $p->route('/action/search/(:any)/(:any)', function($dir = '',$query = '') use($p
                         '.$p->Url().'/action/edit/'.Token::generate().'/'.
                         base64_encode($directory.$item).'">
                         '.File::name($item).'
-                        | <i class="ti-arrow-right"></i>
+                        | <i class="fa fa-arrow-right"></i>
                       </a>
                     </li>';
       }
@@ -97,7 +97,7 @@ $p->route('/action/searchfiles/(:any)', function($query = '') use($p) {
                         '.$p->Url().'/action/uploads/preview/'.base64_encode($directory.$item).'">
                         '.File::name($item).'.'.File::ext($item).'">
                         '.File::name($item).'
-                        | <i class="ti-arrow-right"></i>
+                        | <i class="fa fa-arrow-right"></i>
                       </a>
                     </li>';
       }
@@ -149,7 +149,7 @@ $p->route('/action/searchmedia/(:any)', function($query = '') use($p) {
                         '.$p->Url().'/action/media/edit/'.$item['id'].' "
                           title="'.$item['title'].'">
                         '.$item['title'].'
-                        | <i class="ti-arrow-right"></i>
+                        | <i class="fa fa-arrow-right"></i>
                       </a>
                     </li>';
 
@@ -209,7 +209,7 @@ $p->route('/action/searchinthemes/(:any)', function($query = '') use($p) {
                       '.$p->Url().'/action/themes/edit/'.Token::generate().'/'.base64_encode($directory.$item).'">
                         '.File::name($item).'.'.File::ext($item).'
                         '.File::name($item).'
-                        | <i class="ti-arrow-right"></i>
+                        | <i class="fa fa-arrow-right"></i>
                       </a>
                     </li>';
       }
