@@ -301,35 +301,6 @@ body {
     margin-top: 0em;
 }
 
-@media(min-width:320px) {
-    #footer {
-        margin-top: 58px !important;
-    }
-}
-
-@media(min-width:375px) {
-    #footer {
-        margin-top: 150px !important;
-    }
-}
-
-@media(min-width:414px) {
-    #footer {
-        margin-top: 204px !important;
-    }
-}
-
-@media(max-width:768px) {
-    #footer {
-        margin-top: 461px !important;
-    }
-}
-
-@media (min-width: 769px) {
-    #footer {
-        margin-top: 10em !important;
-    }
-}
 
 /* Custom page CSS
 -------------------------------------------------- */
