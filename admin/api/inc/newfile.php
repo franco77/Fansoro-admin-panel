@@ -575,7 +575,7 @@ $p->route('/action/themes/newfile/(:any)/(:any)', function($token,$file) use($p)
 								</div>
 								<div class="row">
 									<div class="col-lg-12">
-										<textarea class="form-control editor" rows="20" name="updateFile">'.$textContent.'</textarea>
+										<textarea class="form-control editor" rows="20" name="newFile">'.$textContent.'</textarea>
 										<br>
 										<input class="btn btn-primary" type="submit" name="saveFile" value="'.Panel::$lang['Save_file'].'">
 										<a class="btn btn-danger" href="'.$p->url().'/'.$url.'">'.Panel::$lang['Cancel'].'</a>
