@@ -2,40 +2,47 @@
 <?php $this->partial('navigation',array()); ?>
 <?php if(Session::exists('user')){ ?>
 	<div id="wrapper">
-		<div id="page-wrapper">
+        <div id="page-wrapper">
 
-			<div class="container-fluid">
+            <div class="container-fluid">
 
-				<!-- Page Heading -->
-				<div class="row mt60">
-					<div class="col-lg-6 col-md-6 col-sm-6 ">
+                <!-- Page Heading -->
+                <div class="row mt60">
+                    <div class="col-lg-6">
 						<?php echo $prev; ?>
 						<span class="btn btn-primary"><?php echo $offset;?> - <?php echo $total;?></span>
 						<?php echo $next; ?>
-					</div>
-					<div class="col-lg-6  col-md-6 col-sm-6 right">
+                    </div>
+					<div class="col-lg-6 right">
 						<form method="post" actiom="" class="form-inline" id="searchinthemes">
 							<div class="form-group">
 							  <input type="search" class="form-control" id="searchthis" placeholder="Search..." required/>
 							</div>
 						</form>
-					</div>
-				</div>
-				<!-- /.row -->
+                    </div>
+                </div>
+                <!-- /.row -->
 
-				<div class="row">
-					<div class="col-lg-12">
-						<h2 class="page-header">Templates</h2>
-						<div class="table-responsive">
-							<table class="table table-bordered table-hover">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="table-responsive panel panel-primary filterable">
+							<div class="panel-heading">
+								<h3 class="panel-title">Templates</h3>
+								<div class="pull-right">
+									<button class="btn btn-default btn-xs btn-filter"><span class="glyphicon glyphicon-filter"></span> Filter</button>
+								</div>
+							</div>
+							<table class="table">
 								<thead>
-									<tr>
-										<th><?php echo Panel::$lang['Name'];?></th>
-										<th class="hidden-xs"><?php echo Panel::$lang['Directory'];?></th>
-										<th class="hidden-xs"><?php echo Panel::$lang['Extension'];?></th>
-										<th class="hidden-xs"><?php echo Panel::$lang['Size'];?></th>
-										<th style="text-align:right"><?php echo Panel::$lang['Options'];?></th>
+									<tr class="filters">
+										<th><input type="text" class="form-control" placeholder="<?php echo Panel::$lang['Name'];?>" disabled></th>
+										<th class="hidden-xs"><input type="text" class="form-control" placeholder="<?php echo Panel::$lang['Directory'];?>" disabled></th>
+										<th class="hidden-xs"><input type="text" class="form-control" placeholder="<?php echo Panel::$lang['Extension'];?>" disabled></th>
+										<th class="hidden-xs"><input type="text" class="form-control" placeholder="<?php echo Panel::$lang['Size'];?>" disabled></th>
+										<th><input type="text" class="form-control" placeholder="<?php echo Panel::$lang['Options'];?>" disabled style="text-align: right;"></th>
 									</tr>
+								</thead>
+								<tbody>
 									<?php
 									  // generate token
 									  $token = Token::generate();
@@ -62,8 +69,8 @@
 											<td class="hidden-xs">'.$dir.'</td>
 											<td class="hidden-xs">'.$extension.'</td>
 											<td class="hidden-xs">'.$size.'</td>
-											<td class="clearfix">
-											  <div class="btn-group pull-right">
+											<td style="text-align:right">
+											  <div class="btn-group">
 												<a  class="btn btn-primary"
 													href="'.$this->Url().'/action/themes/edit/'.$token.'/'.base64_encode($item).'"
 													title="'.Panel::$lang['Edit_File'].'">
@@ -89,18 +96,18 @@
 								</tbody>
 							</table>
 						</div>
-					</div>
+                    </div>
 
-				</div>
-				<!-- /.row -->
+                </div>
+                <!-- /.row -->
 
 				<div class="row">
-					<div class="col-lg-6 col-md-6 col-xs-6">
+					<div class="col-lg-6">
 						<a class="btn btn-primary" href="<?php echo $this->Url().'/action/themes/newfile/'.$token.'/'.base64_encode($directory)?>">
 						  <?php echo Panel::$lang['New_File'];?>
 						</a>
 					</div>
-					<div class="col-lg-6  col-md-6 col-xs-6 right">
+					<div class="col-lg-6 right">
 						<!-- upload  zip-->
 						<a href="#" class="btn btn-warning" data-toggle="modal" data-target="#importFile">
 						<i class="fa fa-upload"></i> - <?php echo $this::$lang['Import_zip'];?></a>
@@ -126,13 +133,13 @@
 					</div>
 				</div>
 
-			</div>
-			<!-- /.container-fluid mt60 -->
+            </div>
+            <!-- /.container-fluid mt60 -->
 
-		</div>
-		<!-- /#page-wrapper -->
+        </div>
+        <!-- /#page-wrapper -->
 
-	</div>
-	<!-- /#wrapper -->
+    </div>
+    <!-- /#wrapper -->
 <?php }; ?>
 <?php $this->partial('footer',array()); ?>
