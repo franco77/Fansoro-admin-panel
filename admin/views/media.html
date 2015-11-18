@@ -2,45 +2,45 @@
 <?php $this->partial('navigation',array()); ?>
 <?php if(Session::exists('user')){ ?>
 	<div id="wrapper">
-        <div id="page-wrapper">
+		<div id="page-wrapper">
 
-            <div class="container-fluid">
+			<div class="container-fluid">
 
-                <!-- Page Heading -->
-                <div class="row mt60">
-                    <div class="col-lg-6">
+				<!-- Page Heading -->
+				<div class="row mt60">
+					<div class="col-lg-6 col-xs-6 col-md-6">
 						<?php echo $prev; ?>
 						<span class="btn btn-primary"><?php echo $offset;?> - <?php echo $total;?></span>
 						<?php echo $next; ?>
-                    </div>
-					<div class="col-lg-6 right">
+					</div>
+					<div class="col-lg-6 col-xs-6 col-md-6 right">
 						<form method="post" actiom="" class="form-inline" id="search-media">
 							<div class="form-group">
 							  <input type="search" class="form-control" id="searchthis" placeholder="Search..." required/>
 							</div>
 						</form>
-                    </div>
-                </div>
-                <!-- /.row -->
+					</div>
+				</div>
+				<!-- /.row -->
 
-                <div class="row">
-                    <div class="col-lg-12">
-                        <h2>Media</h2>
-                        <?php echo $content ?>
+				<div class="row">
+					<div class="col-lg-12">
+						<h2 class="page-header">Media</h2>
+						<?php echo $content ?>
 
 
-                    </div>
+					</div>
 
-                </div>
-                <!-- /.row -->
+				</div>
+				<!-- /.row -->
 
-            </div>
-            <!-- /.container-fluid mt60 -->
+			</div>
+			<!-- /.container-fluid mt60 -->
 
-        </div>
-        <!-- /#page-wrapper -->
+		</div>
+		<!-- /#page-wrapper -->
 
-    </div>
-    <!-- /#wrapper -->
+	</div>
+	<!-- /#wrapper -->
 <?php }; ?>
 <?php $this->partial('footer',array()); ?>

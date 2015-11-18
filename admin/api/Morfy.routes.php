@@ -29,9 +29,9 @@ foreach ($inc as $inc_file) {
 */
 $p->route('/action/logout', function() use($p){
   if(Session::exists('user')){
-    Session::delete('user');
-    Session::destroy();
-    Request::redirect($p::$site['url']);
+	Session::delete('user');
+	Session::destroy();
+	Request::redirect($p::$site['url']);
   }
 });
 
