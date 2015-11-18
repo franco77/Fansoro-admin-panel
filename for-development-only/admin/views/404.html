@@ -1,0 +1,31 @@
+<?php $this->partial('head',array()); ?>
+<?php $this->partial('navigation',array()); ?>
+	
+	<div id="wrapper">
+
+        <div id="page-wrapper">
+
+            <div class="container-fluid">
+
+                <!-- Page Heading -->
+                <div class="row mt60">
+                    <div class="col-lg-12">
+                        <?php if(Session::exists('user')){ ?>
+
+						  <?php echo $content;?>
+
+						<?php }; ?>
+                    </div>
+                </div>
+                <!-- /.row -->
+
+            </div>
+            <!-- /.container-fluid mt60 -->
+
+        </div>
+        <!-- /#page-wrapper -->
+		
+    </div>
+    <!-- /#wrapper -->
+
+<?php $this->partial('footer',array()); ?>

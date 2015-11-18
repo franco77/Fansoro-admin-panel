@@ -1,0 +1,92 @@
+# notificaion
+Success_edit:       'El archivo ha sido actualizado'
+Success_save:       'El archivo ha sido guardado'
+Success_remove:     'El archivo ha sido borrado'
+Success_rename:     'El archivo ha sido renombrado'
+
+# login
+Password_Error: 'Contraseña erronea'
+# sections
+Dashboard:    'Dashboard'
+Pages:        'Paginas'
+Media:        'Media'
+Uploads:      'Uploads'
+Blocks:       'Bloques'
+Themes:       'Plantillas'
+Plugins:      'Plugins'
+Settings:     'Ajustes'
+Support:      'Soporte'
+# pages
+Directory:      'Directorio'
+Name:           'Nombre'
+Extension:      'Estension'
+Options:        'Opciones'
+Actions:        'Acciones'
+Preview:        'Vista previa'
+Edit_File:      'Editar archivo'
+Rename_File:    'Renombrar archivo'
+New_File:       'Nuevo archivo'
+New_Folder:     'Nueva carpeta'
+Remove_File:    'Borrar archivo'
+Remove_Folder:  'Borrar carpeta'
+Search:         'Buscar'
+back:           'Volver'
+# info index for rename and delete
+exencial_file: 'Precaucion !, este archivo es esencial'
+# edit file
+Update:  'Actualizar'
+# new file
+Save_file:  'Guardar archivo'
+# new folder
+Folder_Already_Exists:  'La carpeta ya existe!'
+Folder_Name_Required:   'El nombre de la carpeta es necesario!'
+# rename
+File_Name_Exists:       'El archivo ya esiste !'
+File_Name_Required:     'El nombre del archivo es necesario'
+# delete
+Are_you_sure_to_delete:         'Esta seguro de borrar'
+Are_you_sure_to_delete_folder:  'Esta seguro de borrar la carpeta'
+Remove:                         'Borrar'
+Cancel:                         'Cancelar'
+#uploads
+back_to_uploads:            'Volver a uploads'
+no_preview_for_this_file:   'Vista previa no disponible'
+Upload_file:                'Subir archivo'
+Upload:                     'Subir'
+Size:                       'Tamaño'
+#media files
+Media:                      'Media'
+All_media:                  'Todo media'
+Create_media:               'Crear media'
+Upload_media:               'Subir imagenes'
+Upload_empty:               'La carpeta esta vacia'
+# media uploads
+Uploads_Media:              'Subidas Media'
+Templates:                  'Templates'
+Stylesheets:                'Stylesheets'
+Javascript:                 'Javascript'
+
+# Themes
+Zip_Public:     'Zip Public'
+Zip_Storage:    'Zip Storage'
+Zip_Themes:     'Zip Themes'
+
+#config
+Config: 'Configuracion'
+# backups
+Backups:                    'Backups'
+New_Backup:                 'Nuevo Backup'
+#diagnostic
+Diagnostic:                 'Diagnostico'
+
+# 404 not found
+Error_page:                 'La carpeta no ha sido encontrada en Morfy Panel'
+# cache
+Clear_cache: 'Clear cache'
+Success_cache: 'Your Cache has been clear'
+# modal and imports
+Import: 'Import'
+Import_blog_files: 'Import blog files'
+Import_backup_files: 'Import backup files'
+Import_zip: 'Import Zip'
+Blog: 'Blog'

@@ -1,0 +1,37 @@
+<div id="loader">
+  <img src="<?php echo $this->Assets('morfy-logo.png','img');?>">
+  <div class="preloader"></div>
+</div>
+
+<?php $this->getMsg(); // get notifications ?>
+
+<!-- header -->
+<header id="header">
+  <?php if (Session::exists('user')){ ?>
+  <!-- btn menu -->
+  <a class="menu" href="#" title="Show Menu">
+    <i class="ti-layout-sidebar-left"></i>
+  </a>
+  <?php }; ?>
+   <!-- App name -->
+  <h2>
+    <a href="<?php echo $this->url();?>" class="header-title">
+      <?php echo Panel::$site['title'].'<span class="header-breadcrumb">'.$title.'</span>';?>
+    </a>
+  </h2>
+  <!-- right menu -->
+   <div class="right">
+      <a target="_blank" href="<?php echo $this::$site['url'];?>" title="View">
+          <i class="fa fa-eye"></i>
+      </a>
+      <?php if (Session::exists('user')){ ?>
+        <a href="<?php echo $this->url();?>/action/logout" title="Logout">
+            <i class="fa fa-sign-out"></i>
+        </a>
+      <?php }else{ ?>
+        <a href="<?php echo $this->url();?>/action/login" title="login">
+            <i class="ti-lock"></i>
+        </a>
+      <?php };?>
+   </div>
+</header>
