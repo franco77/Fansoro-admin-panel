@@ -62,9 +62,9 @@ Upload_media:               'Subir imagenes'
 Upload_empty:               'La carpeta esta vacia'
 # media uploads
 Uploads_Media:              'Subidas Media'
-Templates:                  'Plantillas'
-Stylesheets:                'Estilos css'
-Javascript:                 'Estilos js'
+Templates:                  'Templates'
+Stylesheets:                'Stylesheets'
+Javascript:                 'Javascript'
 
 # Themes
 Zip_Public:     'Zip Public'
@@ -83,10 +83,10 @@ Diagnostic:                 'Diagnostico'
 Error_page:                 'La carpeta no ha sido encontrada en Morfy Panel'
 # cache
 Clear_cache: 'Clear cache'
-Success_cache: 'El cache ha sido borrado'
+Success_cache: 'Your Cache has been clear'
 # modal and imports
-Import: 'Importar'
-Import_blog_files: 'Importar posts'
-Import_backup_files: 'Importar backup'
-Import_zip: 'Importar Zip'
+Import: 'Import'
+Import_blog_files: 'Import blog files'
+Import_backup_files: 'Import backup files'
+Import_zip: 'Import Zip'
 Blog: 'Blog'

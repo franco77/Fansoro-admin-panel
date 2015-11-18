@@ -72,7 +72,7 @@
 
 
 					<!-- Theme-->
-					<li <?php if($slug == 'templates' || $slug == 'stylesheets' || $slug == 'javascript' ){?> class="active has-dropdown"<?php }else{?> class="" <?php };?>>
+					<li>
                         <a href="javascript:;" data-toggle="collapse" data-target="#themes"></i> <?php echo Panel::$lang['Themes'];?> <i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="themes" class="collapse">
                             <li><a href="<?php echo $this->url();?>/templates"><?php echo Panel::$lang['Templates'];?> </a></li>
