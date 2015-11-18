@@ -36,9 +36,9 @@
 					<thead>
 						<tr class="filters">
 							<th><input type="text" class="form-control" placeholder="<?php echo Panel::$lang['Name'];?>" disabled></th>
-							<th><input type="text" class="form-control" placeholder="<?php echo Panel::$lang['Directory'];?>" disabled></th>
-							<th><input type="text" class="form-control" placeholder="<?php echo Panel::$lang['Extension'];?>" disabled></th>
-							<th><input type="text" class="form-control" placeholder="<?php echo Panel::$lang['Options'];?>" disabled></th>
+							<th class="hidden-xs"><input type="text" class="form-control" placeholder="<?php echo Panel::$lang['Directory'];?>" disabled></th>
+							<th class="hidden-xs hidden-sm"><input type="text" class="form-control" placeholder="<?php echo Panel::$lang['Extension'];?>" disabled></th>
+							<th><input type="text" class="form-control" placeholder="<?php echo Panel::$lang['Options'];?>" disabled style="text-align: right;"></th>
 						</tr>
 					</thead>
 					<tbody>
@@ -61,9 +61,9 @@
 							echo '
 							  <tr>
 								<td>'.$name.'</td>
-								<td>'.$directory.'</td>
-								<td class="hide-for-mobile">'.$extension.'</td>
-								<td class="right">
+								<td class="hidden-xs">'.$directory.'</td>
+								<td class="hidden-xs hidden-sm">'.$extension.'</td>
+								<td style="text-align:right">
 								  <div class="btn-group">
 									<a  class="btn btn-primary"
 										href="'.$this->Url().'/action/edit/'.$token.'/'.base64_encode($item).'"
