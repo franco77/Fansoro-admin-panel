@@ -62,22 +62,9 @@
 										$backslash = explode('\\',$directory);
 										if(count($frontslash) > 2 || count($backslash) > 2 ){
 										  $showDirOptions =
-											'<a  class="btn btn-success"
-												  href="'.$this->Url().'/action/newfile/'.$token.'/'.base64_encode($directory).'"
-												  title="'.Panel::$lang['New_File'].'">
-													<i class="fa fa-file-o"></i>
-											  </a>
-											  <a  class="btn btn-success"
-												  href="'.$this->Url().'/action/newfolder/'.$token.'/'.base64_encode($directory).'"
-												  title="'.Panel::$lang['New_Folder'].'">
-													<i class="fa fa-folder-o"></i>
-											  </a>
-											   <a  class="btn btn-danger"
-												  onclick="return confirm(\''.Panel::$lang['Are_you_sure_to_delete'].' !\')"
-												  href="'.$this->Url().'/action/removefolder/'.$token.'/'.base64_encode($directory).'"
-												  title="'.Panel::$lang['Remove_Folder'].'">
-													<i class="fa fa-folder-o"></i>
-											  </a>';
+											'<li><a href="'.$this->Url().'/action/newfile/'.$token.'/'.base64_encode($directory).'" title="'.Panel::$lang['New_File'].'"><i class="fa fa-file-o"></i> '.Panel::$lang['New_File'].'</a></li>
+											<li><a href="'.$this->Url().'/action/newfolder/'.$token.'/'.base64_encode($directory).'" title="'.Panel::$lang['New_Folder'].'"><i class="fa fa-folder-o"></i> '.Panel::$lang['New_Folder'].'</a></li>
+											<li><a onclick="return confirm(\''.Panel::$lang['Are_you_sure_to_delete'].' !\')" href="'.$this->Url().'/action/removefolder/'.$token.'/'.base64_encode($directory).'" title="'.Panel::$lang['Remove_Folder'].'"><i class="fa fa-folder-o"></i> '.Panel::$lang['Remove_Folder'].'</a></li>';
 										}
 
 										// check if is index
@@ -94,30 +81,22 @@
 											<td class="hide-for-mobile">'.$extension.'</td>
 											<td class="right">
 											  <div class="btn-group">
-												<a  class="btn btn-default"
+												  <a  class="btn btn-default"
 													target="_blank"
 													href="'.$this->Url().'/action/preview/'.base64_encode($item).'"
-													title="'.Panel::$lang['Preview'].'">
-													  <i class="fa fa-eye"></i>
+													title="'.Panel::$lang['Preview'].'"><i class="fa fa-eye"></i> '.Panel::$lang['Preview'].'
 												</a>
-												<a  class="btn btn-primary"
-													href="'.$this->Url().'/action/edit/'.$token.'/'.base64_encode($item).'"
-													title="'.Panel::$lang['Edit_File'].'">
-													  <i class="fa fa-pencil-square-o"></i>
-												</a>
-												<a  class="btn btn-warning"
-													href="'.$this->Url().'/action/rename/'.$token.'/'.base64_encode($item).'"
-													title="'.Panel::$lang['Rename_File'].'">
-													  <i class="fa fa-file-excel-o"></i>
-												</a>
-												'.$showDirOptions.'
-												<a  class="btn btn-danger"
-													onclick="return confirm(\''.Panel::$lang['Are_you_sure_to_delete'].' '.$suggest.' !\')"
-													href="'.$this->Url().'/action/removefile/'.$token.'/'.base64_encode($item).'"
-													title="'.Panel::$lang['Remove_File'].'">
-													  <i class="fa fa-trash-o"></i>
-												</a>
-											  </div>
+												  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+													<span class="caret"></span>
+													<span class="sr-only">Toggle Dropdown</span>
+												  </button>
+												  <ul class="dropdown-menu dropdown-menu-right">
+													<li><a href="'.$this->Url().'/action/edit/'.$token.'/'.base64_encode($item).'" title="'.Panel::$lang['Edit_File'].'"><i class="fa fa-pencil-square-o"></i> '.Panel::$lang['Edit_File'].'</a></li>
+													<li><a href="'.$this->Url().'/action/rename/'.$token.'/'.base64_encode($item).'" title="'.Panel::$lang['Rename_File'].'"><i class="fa fa-file-excel-o"></i> '.Panel::$lang['Rename_File'].'</a></li>
+													'.$showDirOptions.'
+													<li><a onclick="return confirm(\''.Panel::$lang['Are_you_sure_to_delete'].' '.$suggest.' !\')" href="'.$this->Url().'/action/removefile/'.$token.'/'.base64_encode($item).'" title="'.Panel::$lang['Remove_File'].'"> <i class="fa fa-trash-o"></i> '.Panel::$lang['Remove_File'].'</a></li>
+												  </ul>
+												</div>
 											</td>
 										  </tr>
 										';
