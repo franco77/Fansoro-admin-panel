@@ -25,72 +25,79 @@
 
                 <div class="row">
                     <div class="col-lg-12">
-                        <h2>Uploads</h2>
-                        <div class="table-responsive">
-                            <table class="table table-bordered table-hover">
-                                <thead>
-                                    <tr>
-										<th><?php echo Panel::$lang['Name'];?></th>
-										<th><?php echo Panel::$lang['Directory'];?></th>
-										<th><?php echo Panel::$lang['Extension'];?></th>
-										<th><?php echo Panel::$lang['Size'];?></th>
-										<th><?php echo Panel::$lang['Options'];?></th>
-                                    </tr>
-									<?php
-									  // generate token
-									  $token = Token::generate();
+                        <div class="table-responsive panel panel-primary filterable">
+				<div class="panel-heading">
+					<h3 class="panel-title">Uploads</h3>
+					<div class="pull-right">
+						<button class="btn btn-default btn-xs btn-filter"><span class="glyphicon glyphicon-filter"></span> Filter</button>
+					</div>
+				</div>
+				<table class="table">
+					<thead>
+						<tr class="filters">
+							<th><input type="text" class="form-control" placeholder="<?php echo Panel::$lang['Name'];?>" disabled></th>
+							<th><input type="text" class="form-control" placeholder="<?php echo Panel::$lang['Directory'];?>" disabled></th>
+							<th><input type="text" class="form-control" placeholder="<?php echo Panel::$lang['Extension'];?>" disabled></th>
+							<th><input type="text" class="form-control" placeholder="<?php echo Panel::$lang['Size'];?>" disabled></th>
+							<th><input type="text" class="form-control" placeholder="<?php echo Panel::$lang['Options'];?>" disabled></th>
+						</tr>
+					</thead>
+					<tbody>
+						<?php
+						  // generate token
+						  $token = Token::generate();
 
-									  if(count($content) > 0) foreach (array_reverse($content) as $item) {
+						  if(count($content) > 0) foreach (array_reverse($content) as $item) {
 
-										// size
-										$size = $this->fileSize($item);
-										// onloy show pages dir
-										$file = str_replace(PUBLICFOLDER.'/', '', $item);
-										// get extension
-										$extension = File::ext($file);
-										// get name
-										$name = File::name($file);
-										// directory
-										$directory = str_replace($name.'.'.$extension, '', $file);
-										$showDirOptions = '';
-										$frontslash = explode('/',$directory);
-										$backslash = explode('\\',$directory);
-										if(count($frontslash) > 2 || count($backslash) > 2 ){
-										  $showDirOptions =
-											'<li><a href="'.$this->Url().'/action/uploads/newfile/'.$token.'/'.base64_encode($directory).'" title="'.Panel::$lang['New_File'].'"><i class="fa fa-file-o"></i> '.Panel::$lang['New_File'].'</a></li>
-											<li><a href="'.$this->Url().'/action/uploads/newfolder/'.$token.'/'.base64_encode($directory).'" title="'.Panel::$lang['New_Folder'].'"><i class="fa fa-folder-o"></i> '.Panel::$lang['New_Folder'].'</a></li>
-											<li><a onclick="return confirm(\''.Panel::$lang['Are_you_sure_to_delete'].' !\')" href="'.$this->Url().'/action/uploads/removefolder/'.$token.'/'.base64_encode($directory).'" title="'.Panel::$lang['Remove_Folder'].'"><i class="fa fa-folder-o"></i> '.Panel::$lang['Remove_Folder'].'</a></li>';
-										}
-										// show
-										echo '
-										  <tr>
-											<td>'.$name.'</td>
-											<td>'.$directory.'</td>
-											<td class="hide-for-mobile">'.$extension.'</td>
-											<td class="hide-for-mobile">'.$size.'</td>
-											<td class="right">
-											  <div class="btn-group">
-												  <a class="btn btn-default"
-													href="'.$this->Url().'/action/uploads/preview/'.base64_encode($item).'"
-													title="'.Panel::$lang['Preview'].'"><i class="fa fa-eye"></i> '.Panel::$lang['Preview'].'
-												</a>
-												  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-													<span class="caret"></span>
-													<span class="sr-only">Toggle Dropdown</span>
-												  </button>
-												  <ul class="dropdown-menu dropdown-menu-right">
-													<li><a href="'.$this->Url().'/action/uploads/rename/'.$token.'/'.base64_encode($item).'" title="'.Panel::$lang['Rename_File'].'"><i class="fa fa-file-excel-o"></i> '.Panel::$lang['Rename_File'].'</a></li>
-													'.$showDirOptions.'
-													<li><a onclick="return confirm(\''.Panel::$lang['Are_you_sure_to_delete'].' '.$suggest.' !\')" href="'.$this->Url().'/action/uploads/removefile/'.$token.'/'.base64_encode($item).'" title="'.Panel::$lang['Remove_File'].'"> <i class="fa fa-trash-o"></i> '.Panel::$lang['Remove_File'].'</a></li>
-												  </ul>
-												</div>
-											</td>
-										  </tr>';
-									  }
-									?>
-                                </tbody>
-                            </table>
-                        </div>
+							// size
+							$size = $this->fileSize($item);
+							// onloy show pages dir
+							$file = str_replace(PUBLICFOLDER.'/', '', $item);
+							// get extension
+							$extension = File::ext($file);
+							// get name
+							$name = File::name($file);
+							// directory
+							$directory = str_replace($name.'.'.$extension, '', $file);
+							$showDirOptions = '';
+							$frontslash = explode('/',$directory);
+							$backslash = explode('\\',$directory);
+							if(count($frontslash) > 2 || count($backslash) > 2 ){
+							  $showDirOptions =
+								'<li><a href="'.$this->Url().'/action/uploads/newfile/'.$token.'/'.base64_encode($directory).'" title="'.Panel::$lang['New_File'].'"><i class="fa fa-file-o"></i> '.Panel::$lang['New_File'].'</a></li>
+								<li><a href="'.$this->Url().'/action/uploads/newfolder/'.$token.'/'.base64_encode($directory).'" title="'.Panel::$lang['New_Folder'].'"><i class="fa fa-folder-o"></i> '.Panel::$lang['New_Folder'].'</a></li>
+								<li><a onclick="return confirm(\''.Panel::$lang['Are_you_sure_to_delete'].' !\')" href="'.$this->Url().'/action/uploads/removefolder/'.$token.'/'.base64_encode($directory).'" title="'.Panel::$lang['Remove_Folder'].'"><i class="fa fa-folder-o"></i> '.Panel::$lang['Remove_Folder'].'</a></li>';
+							}
+							// show
+							echo '
+							  <tr>
+								<td>'.$name.'</td>
+								<td>'.$directory.'</td>
+								<td class="hide-for-mobile">'.$extension.'</td>
+								<td class="hide-for-mobile">'.$size.'</td>
+								<td class="right">
+									<div class="btn-group">
+									  <a class="btn btn-default"
+										href="'.$this->Url().'/action/uploads/preview/'.base64_encode($item).'"
+										title="'.Panel::$lang['Preview'].'"><i class="fa fa-eye"></i> '.Panel::$lang['Preview'].'
+									</a>
+									  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+										<span class="caret"></span>
+										<span class="sr-only">Toggle Dropdown</span>
+									  </button>
+									  <ul class="dropdown-menu dropdown-menu-right">
+										<li><a href="'.$this->Url().'/action/uploads/rename/'.$token.'/'.base64_encode($item).'" title="'.Panel::$lang['Rename_File'].'"><i class="fa fa-file-excel-o"></i> '.Panel::$lang['Rename_File'].'</a></li>
+										'.$showDirOptions.'
+										<li><a onclick="return confirm(\''.Panel::$lang['Are_you_sure_to_delete'].' '.$suggest.' !\')" href="'.$this->Url().'/action/uploads/removefile/'.$token.'/'.base64_encode($item).'" title="'.Panel::$lang['Remove_File'].'"> <i class="fa fa-trash-o"></i> '.Panel::$lang['Remove_File'].'</a></li>
+									  </ul>
+									</div>
+								</td>
+							  </tr>';
+						  }
+						?>
+					</tbody>
+				</table>
+			</div>
                     </div>
 
                 </div>
