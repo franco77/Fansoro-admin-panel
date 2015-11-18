@@ -25,70 +25,77 @@
 
                 <div class="row">
                     <div class="col-lg-12">
-                        <h2>Templates</h2>
-                        <div class="table-responsive">
-                            <table class="table table-bordered table-hover">
-                                <thead>
-                                    <tr>
-										<th><?php echo Panel::$lang['Name'];?></th>
-										<th><?php echo Panel::$lang['Directory'];?></th>
-										<th><?php echo Panel::$lang['Extension'];?></th>
-										<th><?php echo Panel::$lang['Size'];?></th>
-										<th><?php echo Panel::$lang['Options'];?></th>
-                                    </tr>
-									<?php
-									  // generate token
-									  $token = Token::generate();
+                        <div class="table-responsive panel panel-primary filterable">
+				<div class="panel-heading">
+					<h3 class="panel-title">Templates</h3>
+					<div class="pull-right">
+						<button class="btn btn-default btn-xs btn-filter"><span class="glyphicon glyphicon-filter"></span> Filter</button>
+					</div>
+				</div>
+				<table class="table">
+					<thead>
+						<tr class="filters">
+							<th><input type="text" class="form-control" placeholder="<?php echo Panel::$lang['Name'];?>" disabled></th>
+							<th><input type="text" class="form-control" placeholder="<?php echo Panel::$lang['Directory'];?>" disabled></th>
+							<th><input type="text" class="form-control" placeholder="<?php echo Panel::$lang['Extension'];?>" disabled></th>
+							<th><input type="text" class="form-control" placeholder="<?php echo Panel::$lang['Size'];?>" disabled></th>
+							<th><input type="text" class="form-control" placeholder="<?php echo Panel::$lang['Options'];?>" disabled></th>
+						</tr>
+					</thead>
+					<tbody>
+						<?php
+						  // generate token
+						  $token = Token::generate();
 
-									  foreach ($content as $item) {
-										// size
-										$size = $this->fileSize($item);
-										// onloy show pages dir
-										$file = str_replace(THEMES, '', $item);
-										// get extension
-										$extension = File::ext($file);
-										// get name
-										$name = File::name($file);
-										// directory
-										$directory = str_replace($name.'.'.$extension, '', $file);
-										// remove backslah on templates only
-										if(preg_match('/assets/i', $directory)) $dir = $directory;
-										else $dir = str_replace('\\', '', $directory);
+						  foreach ($content as $item) {
+							// size
+							$size = $this->fileSize($item);
+							// onloy show pages dir
+							$file = str_replace(THEMES, '', $item);
+							// get extension
+							$extension = File::ext($file);
+							// get name
+							$name = File::name($file);
+							// directory
+							$directory = str_replace($name.'.'.$extension, '', $file);
+							// remove backslah on templates only
+							if(preg_match('/assets/i', $directory)) $dir = $directory;
+							else $dir = str_replace('\\', '', $directory);
 
-										// show
-										echo '
-										  <tr>
-											<td>'.$name.'.'.$extension.'</td>
-											<td>'.$dir.'</td>
-											<td class="hide-for-mobile">'.$extension.'</td>
-											<td class="hide-for-mobile">'.$size.'</td>
-											<td class="right">
-											  <div class="btn-group">
-												<a  class="btn btn-primary"
-													href="'.$this->Url().'/action/themes/edit/'.$token.'/'.base64_encode($item).'"
-													title="'.Panel::$lang['Edit_File'].'">
-													  <i class="fa fa-pencil-square-o"></i>
-												</a>
-												<a  class="btn btn-warning"
-													href="'.$this->Url().'/action/themes/rename/'.$token.'/'.base64_encode($item).'"
-													title="'.Panel::$lang['Rename_File'].'">
-													  <i class="fa fa-file-excel-o"></i>
-												</a>
-												<a  class="btn btn-danger"
-													onclick="return confirm(\''.Panel::$lang['Are_you_sure_to_delete'].' !\')"
-													href="'.$this->Url().'/action/themes/removefile/'.$token.'/'.base64_encode($item).'"
-													title="'.Panel::$lang['Remove_File'].'">
-													  <i class="fa fa-trash-o"></i>
-												</a>
-											  </div>
-											</td>
-										  </tr>
-										';
-									  };
-									  ?>
-                                </tbody>
-                            </table>
-                        </div>
+							// show
+							echo '
+							  <tr>
+								<td>'.$name.'.'.$extension.'</td>
+								<td>'.$dir.'</td>
+								<td class="hide-for-mobile">'.$extension.'</td>
+								<td class="hide-for-mobile">'.$size.'</td>
+								<td class="right">
+								  <div class="btn-group">
+									<a  class="btn btn-primary"
+										href="'.$this->Url().'/action/themes/edit/'.$token.'/'.base64_encode($item).'"
+										title="'.Panel::$lang['Edit_File'].'">
+										  <i class="fa fa-pencil-square-o"></i>
+									</a>
+									<a  class="btn btn-warning"
+										href="'.$this->Url().'/action/themes/rename/'.$token.'/'.base64_encode($item).'"
+										title="'.Panel::$lang['Rename_File'].'">
+										  <i class="fa fa-file-excel-o"></i>
+									</a>
+									<a  class="btn btn-danger"
+										onclick="return confirm(\''.Panel::$lang['Are_you_sure_to_delete'].' !\')"
+										href="'.$this->Url().'/action/themes/removefile/'.$token.'/'.base64_encode($item).'"
+										title="'.Panel::$lang['Remove_File'].'">
+										  <i class="fa fa-trash-o"></i>
+									</a>
+								  </div>
+								</td>
+							  </tr>
+							';
+						  };
+						  ?>
+					</tbody>
+				</table>
+			</div>
                     </div>
 
                 </div>
