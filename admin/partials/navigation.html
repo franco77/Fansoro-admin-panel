@@ -1,0 +1,119 @@
+<?php $slug = Url::getUriSegment(0); ?>
+
+        <!-- Navigation -->
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="<?php echo $this->url();?>"><?php echo Panel::$site['title'];?></a>
+            </div>
+            <!-- Top Menu Items -->
+            <ul class="nav navbar-right top-nav">
+                <li>
+					<div id="daymonthyear"></div>
+				</li>
+				<li>
+					<div id="hourminutesecond"></div>
+				</li>
+                <li>
+					<a target="_blank" href="<?php echo $this::$site['url'];?>" title="View">
+					  <i class="fa fa-eye"></i>
+				  </a>
+				</li>
+				<li>
+				  <?php if (Session::exists('user')){ ?>
+					<a href="<?php echo $this->url();?>/action/logout" title="Logout">
+						<i class="fa fa-sign-out"></i>
+					</a>
+				  <?php }else{ ?>
+					<a href="<?php echo $this->url();?>/action/login" title="login">
+						<i class="ti-lock"></i>
+					</a>
+				  <?php };?>
+                </li>
+            </ul>
+            <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <ul class="nav navbar-nav side-nav">
+                    <?php if(session::exists('user')) { ?>
+
+					<!-- Pages-->
+					<li <?php if($slug == 'pages'){?> class="active"<?php };?>>
+						<a href="<?php echo $this->url();?>/pages"><?php echo Panel::$lang['Pages'];?></a>
+					</li>
+
+					<!-- Blocks-->
+					<li <?php if($slug == 'blocks'){?> class="active"<?php };?>>
+						<a href="<?php echo $this->url();?>/blocks">
+							<?php echo Panel::$lang['Blocks'];?>
+						</a>
+					</li>
+
+					<!-- Uploads-->
+					<li <?php if($slug == 'uploads'){?> class="active"<?php };?>>
+						<a href="<?php echo $this->url();?>/uploads">
+							<?php echo Panel::$lang['Uploads'];?>
+						</a>
+					</li>
+
+					<!-- Media-->
+					<li <?php if($slug == 'media'){?> class="active has-dropdown"<?php }else{?> class="" <?php };?>>
+						<a href="javascript:;" data-toggle="collapse" data-target="#demo"></i> <?php echo Panel::$lang['Media'];?> <i class="fa fa-fw fa-caret-down"></i></a>
+                        <ul id="demo" class="collapse">
+                            <li><a href="<?php echo $this->url();?>/media"><?php echo $this::$lang['All_media'];?> </a></li>
+							<li><a href="<?php echo $this->url();?>/media/create"><?php echo $this::$lang['Create_media'];?> </a></li>
+                        </ul>
+					</li>
+
+
+					<!-- Theme-->
+					<li <?php if($slug == 'templates' || $slug == 'stylesheets' || $slug == 'javascript' ){?> class="active has-dropdown"<?php }else{?> class="" <?php };?>>
+                        <a href="javascript:;" data-toggle="collapse" data-target="#themes"></i> <?php echo Panel::$lang['Themes'];?> <i class="fa fa-fw fa-caret-down"></i></a>
+                        <ul id="themes" class="collapse">
+                            <li><a href="<?php echo $this->url();?>/templates"><?php echo Panel::$lang['Templates'];?> </a></li>
+							<li><a href="<?php echo $this->url();?>/stylesheets"><?php echo Panel::$lang['Stylesheets'];?> </a></li>
+							<li><a href="<?php echo $this->url();?>/javascript"><?php echo Panel::$lang['Javascript'];?> </a></li>
+                        </ul>
+                    </li>
+
+
+					<!-- Backups-->
+					<li <?php if($slug == 'backups'){?> class="active"<?php };?>>
+						<a href="<?php echo $this->url();?>/backups">
+							<?php echo Panel::$lang['Backups'];?>
+						</a>
+					</li>
+
+					<!-- Backups-->
+					<li <?php if($slug == 'diag'){?> class="active"<?php };?>>
+						<a href="<?php echo $this->url();?>/diag">
+							<?php echo Panel::$lang['Diagnostic'];?>
+						</a>
+					</li>
+
+					<!-- Config-->
+					<li <?php if($slug == 'config'){?> class="active"<?php };?>>
+						<a href="<?php echo $this->url();?>/config">
+							<?php echo Panel::$lang['Config'];?>
+						</a>
+					</li>
+
+					<!-- Support-->
+					<li>
+                        <a href="javascript:;" data-toggle="collapse" data-target="#support"></i> <?php echo Panel::$lang['Support'];?> <i class="fa fa-fw fa-caret-down"></i></a>
+                        <ul id="support" class="collapse">
+                            <li><a target="_blank" href="http://morfy.org/documentation">Documentation</a></li>
+							<li><a target="_blank" href="http://forum.morfy.org/" title="Morfy Forum">Morfy Forum</a></li>
+							<li><a target="_blank" href="http://gitter.im/morfy-cms/morfy" title="Morfy on Gitter">Morfy on Gitter</a></li>
+                        </ul>
+                    </li>
+					<?php }; ?>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </nav>

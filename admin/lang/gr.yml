@@ -1,0 +1,88 @@
+# notificaion
+Success_edit: 'Το αρχείο έχει ενημερωθεί'
+Success_save: 'Το αρχείο έχει αποθηκευτεί'
+Success_remove: 'Το αρχείο έχει αφαιρεθεί'
+Success_rename: 'Το αρχείο έχει ματανόμαστεί'
+# login
+Password_Error: 'Σφάλμα κωδικού πρόσβασης'
+# sections
+Dashboard: 'Ταμπλό'
+Pages: 'Σελίδες'
+Media: 'Media'
+Uploads: 'Uploads'
+Blocks: 'Blocks'
+Themes: 'Πρότυπα'
+Plugins: 'Πρόσθετα'
+Settings: 'Ρυθμίσεις'
+Support: 'Υποστήριξη'
+# pages
+Directory: 'Κατάλογος'
+Name: 'Όνομα'
+Extension: 'Επέκταση'
+Options: 'Επιλογές'
+Actions:	'Ενέργειες'
+Preview: 'Προεπισκόπηση'
+Edit_File: 'Επεξεργασία αρχείου'
+Rename_File: 'Μετονομασία αρχείου'
+New_File: 'Νέο αρχείο'
+New_Folder: 'Νέος φάκελος'
+Remove_File: 'Κατάργηση αρχείου'
+Remove_Folder: 'Κατάργηση φακέλου'
+Search:	'Αναζήτηση'
+back:	'Πίσω'
+# info index for rename and delete
+exencial_file: 'Precaution!,This is a exencial file'
+# edit file
+Update: 'Ενημέρωση'
+# new file
+Save_file: 'Αποθήκευση αρχείου'
+# new folder
+Folder_Already_Exists:	'Φάκελος υπάρχει ήδη!'
+Folder_Name_Required:	'Όνομα φακέλου απαιτείται!'
+# rename
+File_Name_Exists:	'Όνομα αρχείου υπάρχει ήδη!'
+File_Name_Required:	'Όνομα αρχείου απαιτείται'
+# delete
+Are You Sure To Delete:	'Είστε σίγουροι ότι για να διαγράψετε'
+Are You Sure_to_delete_folder:	'Είστε σίγουροι ότι για να διαγράψετε το φάκελο'
+Remove:	'Κατάργηση'
+Cancel:	'Ακύρωση'
+#uploads
+back_to_uploads:	'Back to Uploads'
+no_preview_for_this_file:	'Χωρίς προεπισκόπηση για αυτό το αρχείο'
+Upload_file:	'Ανεβάστε αρχείο'
+Upload:	'Ανεβάστε'
+Size:	'Size'
+#media files
+Media:	'Media'
+All_media:	'All media'
+Create_media:	'Create media'
+Upload_media:	'Ανεβάστε τις εικόνες'
+Upload_empty:	'Ο φάκελος είναι άδειο'
+# media uploads
+Uploads_Media:	'Uploads Media'
+Templates:	'Templates'
+Stylesheets:	'Stylesheets'
+Javascript:	'Javascript'
+# Themes
+Zip_Public:	'Zip Public'
+Zip_Storage: 'Zip Storage'
+Zip_Themes:	'Zip Themes'
+#config
+Config: 'Configuration'
+# backups
+Backups:	'Backups'
+New_Backup:	'New Backup'
+#diagnostic
+Diagnostic:	'Diagnostic'
+# 404 not found
+Error_page:	'The request page not found in Morfy Panel'
+# cache
+Clear_cache: 'Clear cache'
+Success_cache: 'Your Cache has been clear'
+# modal and imports
+Import: 'Import'
+Import_blog_files: 'Import blog files'
+Import_backup_files: 'Import backup files'
+Import_zip: 'Import Zip'
+Blog: 'Blog'
