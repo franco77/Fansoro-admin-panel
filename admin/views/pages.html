@@ -116,15 +116,18 @@
 
                 </div>
                 <!-- /.row -->
-
+		<?php 
+			$dir = preg_replace('/\\\\/', '', $directory);
+			$dir = preg_replace('/blog/', '', $dir);
+		?>
 				<div class="row">
 					<div class="col-lg-6">
 					  <a class="btn btn-primary"
-						href="<?php echo $this->Url().'/action/newfile/'.$token.'/'.base64_encode($directory)?>">
+						href="<?php echo $this->Url().'/action/newfile/'.$token.'/'.base64_encode($dir)?>">
 						<?php echo Panel::$lang['New_File'];?>
 					  </a>
 					  <a class="btn btn-success"
-						href="<?php echo $this->Url().'/action/newfolder/'.$token.'/'.base64_encode($directory)?>">
+						href="<?php echo $this->Url().'/action/newfolder/'.$token.'/'.base64_encode($dir)?>">
 						<?php echo Panel::$lang['New_Folder'];?>
 					  </a>
 					  <!-- blog upload -->
