@@ -16,7 +16,6 @@ $p->route('/action/newfile/(:any)/(:any)', function($token,$file) use($p){
 		if (Token::check($token)) {
 			// directory
 			$path = base64_decode($file);
-
 			// search pages or blocks in url
 			$url = '';
 			$textContent = '';

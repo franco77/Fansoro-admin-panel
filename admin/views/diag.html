@@ -27,6 +27,7 @@
 								}
 							?>
 							<p><b>Server Type:</b> <?php print $_SERVER['SERVER_SOFTWARE']; ?><br>
+							<b>Morfy Panel Version:</b> <?php print $this->version;?><br>
 							<b>PHP Version:</b> <?php print phpversion()?><br>
 							<b>File Uploads:</b> <?php print check('file_uploads'); ?><br>
 							<b>Safe Mode:</b> <?php print check('safe_mode'); ?><br>

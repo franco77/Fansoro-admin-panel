@@ -278,20 +278,9 @@ $p->route('/action/themes/edit/(:any)/(:any)', function($token,$file) use($p){
 $p->route('/config', function() use($p){
 	if(Session::exists('user')){
 
-			// update file
-			if(Request::post('saveFile')){
-				if(Request::post('token')){
-					$content = Request::post('updateFile');
-					// save content
-					File::setContent(SITE,$content);
-					// set notification
-					$p->setMsg($p::$lang['Success_edit']);
-					// redirect
-					Request::redirect($p->Url());
-				}else{
-					die('crsf Detect!');
-				}
-			}
+
+			$p->setMsg('Demo only');
+
 
 			$p->view('actions',array(
 				'url' => 'Config',
