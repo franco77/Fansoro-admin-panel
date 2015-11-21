@@ -1,6 +1,6 @@
 <?php
     // required version
-    if (version_compare(PHP_VERSION, "5.3.0", "<")) exit("Panel requires PHP 5.3.0 or greater.");
+    if (version_compare(PHP_VERSION, "5.5.0", "<")) exit("Panel requires PHP 5.5.0 or greater.");
     // panel folder
     $backend = 'admin';
     // Root directory
