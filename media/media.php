@@ -12,13 +12,13 @@
 
 
 /*
-* fn: Morfy::runAction('Media')
+* fn: Action::run('Media')
 * Page/File: media/media.md
 * Template: media.tpl
 * Link all: media
 * link by id: {$.site.url}/media?action=view&id=45433423
 */
-Morfy::addAction('Media', function(){
+Action::add('Media', function(){
 
     // id of media item
     $id = Request::get('id');
@@ -81,9 +81,9 @@ Morfy::addAction('Media', function(){
         $templateAll = '';
         foreach($json as $media) {
             $templateAll .= '<figure>
-                <img width="'.$media['width'].'" height="'.$media['height'].'" src="'.Morfy::$site['url'].$media['thumb'].'"/>
+                <img width="'.$media['width'].'" height="'.$media['height'].'" src="'.Config::get('site.site_url').$media['thumb'].'"/>
                 <figcaption>
-                    <a href="'.Morfy::$site['url'].'/media?action=view&id='.$media['id'].'" title="'.toHtml($media['title']).'">'.toHtml($media['title']).'</a>
+                    <a href="'.Config::get('site.site_url').'/media?action=view&id='.$media['id'].'" title="'.toHtml($media['title']).'">'.toHtml($media['title']).'</a>
                 </figcaption>
             </figure>'; 
         }
@@ -91,6 +91,9 @@ Morfy::addAction('Media', function(){
         // check json file if not empty
         if(count($json) > 0) echo $templateAll;
         else echo '<div class="alert alert-danger">Empty Media albums</div>';
+
+        // get config
+        //print_r(json_encode(Config::getConfig(),true));
 
     }
     

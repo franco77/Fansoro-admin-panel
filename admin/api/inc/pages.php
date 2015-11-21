@@ -65,7 +65,7 @@ $p->route('/', function() use($p){
 				if(Request::post('pass') == $password && Request::post('email') == $p::$site['author']['email']){
 					@Session::start();
 					Session::set('user',$hash);
-					Request::redirect($p::$site['url'].'/'.$p::$site['backend_folder']);
+					Request::redirect($p::$site['site_url'].'/'.$p::$site['backend_folder']);
 				}else{
 					// password not correct show error
 					$error = '<span class="label label-danger">'.$p::$lang['Password_Error'].'</span>';
@@ -162,14 +162,14 @@ $p->route(array('/pages','/pages/(:num)'),function($offset = 1) use($p){
 			$prev = '';
 			$next = '';
 			if($offset > 1) {
-					$prev = '<a class="btn btn-primary" href="'.$p->Url().'/pages/'.($offset - 1).'"><i class="fa fa-arrow-left"></i></a>';
+				$prev = '<a class="btn btn-primary" href="'.$p->Url().'/pages/'.($offset - 1).'"><i class="fa fa-arrow-left"></i></a>';
 			} else {
-					$prev = '<span class="btn black"><i class="fa fa-arrow-left"></i></span>';
+				$prev = '<span class="btn black"><i class="fa fa-arrow-left"></i></span>';
 			}
 			if($offset < ceil(count($content) / $per_page)) {
-					$next = '<a  class="btn btn-primary" href="' . $p->Url().'/pages/'.($offset + 1).'"><i class="fa fa-arrow-right"></i></a>';
+				$next = '<a  class="btn btn-primary" href="' . $p->Url().'/pages/'.($offset + 1).'"><i class="fa fa-arrow-right"></i></a>';
 			} else {
-					$next = '<span class="btn black"><i class="fa fa-arrow-right"></i></span>';
+				$next = '<span class="btn black"><i class="fa fa-arrow-right"></i></span>';
 			}
 			// show pages
 			$p->view('pages',array(
@@ -192,7 +192,7 @@ $p->route(array('/pages','/pages/(:num)'),function($offset = 1) use($p){
 			));
 		}
 	}else{
-		Request::redirect($p::$site['url'].'/'.$p::$site['backend_folder']);
+		Request::redirect($p::$site['site_url'].'/'.$p::$site['backend_folder']);
 	}
 });
 
@@ -236,14 +236,14 @@ $p->route(array('/blocks','/blocks/(:num)'),function($offset = 1) use($p){
 			$prev = '';
 			$next = '';
 			if($offset > 1) {
-					$prev = '<a class="btn  blue" href="'.$p->Url().'/blocks/'.($offset - 1).'"><i class="fa fa-arrow-left"></i></a>';
+				$prev = '<a class="btn  blue" href="'.$p->Url().'/blocks/'.($offset - 1).'"><i class="fa fa-arrow-left"></i></a>';
 			} else {
-					$prev = '<span class="btn black"><i class="fa fa-arrow-left"></i></span>';
+				$prev = '<span class="btn black"><i class="fa fa-arrow-left"></i></span>';
 			}
 			if($offset < ceil(count($content) / $per_page)) {
-					$next = '<a class="btn btn-primary" href="' . $p->Url().'/blocks/'.($offset + 1).'"><i class="fa fa-arrow-right"></i></a>';
+				$next = '<a class="btn btn-primary" href="' . $p->Url().'/blocks/'.($offset + 1).'"><i class="fa fa-arrow-right"></i></a>';
 			} else {
-					$next = '<span class="btn  black"><i class="fa fa-arrow-right"></i></span>';
+				$next = '<span class="btn  black"><i class="fa fa-arrow-right"></i></span>';
 			}
 			// show blocks
 			$p->view('blocks',array(
@@ -266,7 +266,7 @@ $p->route(array('/blocks','/blocks/(:num)'),function($offset = 1) use($p){
 			));
 		}
 	}else{
-		Request::redirect($p::$site['url'].'/'.$p::$site['backend_folder']);
+		Request::redirect($p::$site['site_url'].'/'.$p::$site['backend_folder']);
 	}
 });
 
@@ -301,12 +301,12 @@ $p->route(array('/uploads','/uploads/(:num)'),function($offset = 1) use($p){
 					$name = $_FILES['importfile']['name'];
 					$target_path = CACHE.'/'.$name;
 					if(move_uploaded_file($filename, $target_path)) {
-							sleep(1);
-							$p->unZip($target_path,PUBLICFOLDER);
-							// set notification
-							$p->setMsg($p::$lang['Success_save']);
-							// redirect
-							Request::redirect($p->Url().'/uploads');
+						sleep(1);
+						$p->unZip($target_path,PUBLICFOLDER);
+						// set notification
+						$p->setMsg($p::$lang['Success_save']);
+						// redirect
+						Request::redirect($p->Url().'/uploads');
 					} else {  
 						$p->setMsg('There was a problem with the upload. Please try again.');
 					}
@@ -325,14 +325,14 @@ $p->route(array('/uploads','/uploads/(:num)'),function($offset = 1) use($p){
 			$prev = '';
 			$next = '';
 			if($offset > 1) {
-					$prev = '<a class="btn btn-primary" href="'.$p->Url().'/uploads/'.($offset - 1).'"><i class="fa fa-arrow-left"></i></a>';
+				$prev = '<a class="btn btn-primary" href="'.$p->Url().'/uploads/'.($offset - 1).'"><i class="fa fa-arrow-left"></i></a>';
 			} else {
-					$prev = '<span class="btn black"><i class="fa fa-arrow-left"></i></span>';
+				$prev = '<span class="btn black"><i class="fa fa-arrow-left"></i></span>';
 			}
 			if($offset < ceil(count($content) / $per_page)) {
-					$next = '<a  class="btn btn-primary" href="' . $p->Url().'/uploads/'.($offset + 1).'"><i class="fa fa-arrow-right"></i></a>';
+				$next = '<a  class="btn btn-primary" href="' . $p->Url().'/uploads/'.($offset + 1).'"><i class="fa fa-arrow-right"></i></a>';
 			} else {
-					$next = '<span class="btn black"><i class="fa fa-arrow-rightt"></i></span>';
+				$next = '<span class="btn black"><i class="fa fa-arrow-right"></i></span>';
 			}
 
 			// show blocks
@@ -358,7 +358,7 @@ $p->route(array('/uploads','/uploads/(:num)'),function($offset = 1) use($p){
 	}
 
 	}else{
-		Request::redirect($p::$site['url'].'/'.$p::$site['backend_folder']);
+		Request::redirect($p::$site['site_url'].'/'.$p::$site['backend_folder']);
 	}
 });
 
@@ -406,49 +406,49 @@ $p->route(array('/media','/media/(:num)'),function($offset = 1) use($p){
 				rsort($json);
 				$showPag = array_chunk($json, $per_page);
 				if($offset > 1) {
-						$prev = '<a class="btn btn-primary" href="'.$p->Url().'/media/'.($offset - 1).'"><i class="fa fa-arrow-left"></i></a>';
+					$prev = '<a class="btn btn-primary" href="'.$p->Url().'/media/'.($offset - 1).'"><i class="fa fa-arrow-left"></i></a>';
 				} else {
-						$prev = '<span class="btn black"><i class="fa fa-arrow-left"></i></span>';
+					$prev = '<span class="btn black"><i class="fa fa-arrow-left"></i></span>';
 				}
 				if($offset < ceil(count($json) / $per_page)) {
-						$next = '<a class="btn btn-primary" href="' . $p->Url().'/media/'.($offset + 1).'"><i class="fa fa-arrow-right"></i></a>';
+					$next = '<a class="btn btn-primary" href="' . $p->Url().'/media/'.($offset + 1).'"><i class="fa fa-arrow-right"></i></a>';
 				} else {
-						$next = '<span class="btn black"><i class="fa fa-arrow-right"></i></span>';
+					$next = '<span class="btn black"><i class="fa fa-arrow-right"></i></span>';
 				}
 
 				// all media files
 				foreach($showPag[$offset - 1] as $media) {
-						$templateAll .= '
-						<div class="row">
-							<div class="col-lg-6">
-								<img class="img-thumbnail" src="'.Panel::$site['url'].$media['thumb'].'?timestamp=1357571065"/>
-							</div>
-							<div class="col-lg-6">
-							<ul class="list-group">
-								<li class="list-group-item"><b>Title: </b>'.$p->toHtml($media['title']).'</lI>
-								<li class="list-group-item"><b>Description: </b>'.$p->TextCut($p->toHtml($media['desc']),20).'</lI>
-								<li class="list-group-item"><b>Width: </b>'.$media['width'].'</li>
-								<li class="list-group-item"><b>Height: </b>'.$media['height'].'</li>
-								<li class="list-group-item"><b>Tag: </b>'.$p->toHtml($media['tag']).'</li>
-								<li class="list-group-item"><b>Markdown: </b></li>
-								<li class="list-group-item"><code>[link text](<a target="_blank" href="'.Panel::$site['url'].'/media?action=view&id='.$media['id'].'">'.Panel::$site['url'].'/media?action=view&id='.$media['id'].'</a>)</code></li>
-								<li class="list-group-item"><b>Html: </b></li>
-								<li class="list-group-item"><code>&lt;a href="<a target="_blank" href="'.Panel::$site['url'].'/media?action=view&id='.$media['id'].'">'.Panel::$site['url'].'/media?action=view&id='.$media['id'].'</a>"&gt;link Text&lt;/a&gt;</code></li>
-								<li class="list-group-item">
-									<a class="btn btn-primary"
-									href="'.$p->Url().'/action/media/edit/'.$media['id'].'"
-									title="'.Panel::$lang['Edit_File'].'"><i class="fa fa-pencil-square-o"></i></a>
-									<a class="btn btn-warning"
-									href="'.$p->Url().'/media/uploads/'.$media['id'].'"
-									title="'.Panel::$lang['Upload_media'].'"><i class="fa fa-upload"></i></a>
-									<a class="btn btn-danger"
-									onclick="return confirm(\''.Panel::$lang['Are_you_sure_to_delete'].' !\')"
-									href="'.$p->Url().'/action/media/removefile/'.Token::generate().'/'.$media['id'].'"
-									title="'.Panel::$lang['Remove_File'].'"><i class="fa fa-trash-o"></i></a>
-								</li>
-							</ul>
-							</div>
-						</div>';
+					$templateAll .= '
+					<div class="row">
+						<div class="col-lg-6">
+							<img class="img-thumbnail" src="'.Panel::$site['site_url'].$media['thumb'].'?timestamp=1357571065"/>
+						</div>
+						<div class="col-lg-6">
+						<ul class="list-group">
+							<li class="list-group-item"><b>Title: </b>'.$p->toHtml($media['title']).'</lI>
+							<li class="list-group-item"><b>Description: </b>'.$p->TextCut($p->toHtml($media['desc']),20).'</lI>
+							<li class="list-group-item"><b>Width: </b>'.$media['width'].'</li>
+							<li class="list-group-item"><b>Height: </b>'.$media['height'].'</li>
+							<li class="list-group-item"><b>Tag: </b>'.$p->toHtml($media['tag']).'</li>
+							<li class="list-group-item"><b>Markdown: </b></li>
+							<li class="list-group-item"><code>[link text](<a target="_blank" href="'.Panel::$site['site_url'].'/media?action=view&id='.$media['id'].'">'.Panel::$site['site_url'].'/media?action=view&id='.$media['id'].'</a>)</code></li>
+							<li class="list-group-item"><b>Html: </b></li>
+							<li class="list-group-item"><code>&lt;a href="<a target="_blank" href="'.Panel::$site['site_url'].'/media?action=view&id='.$media['id'].'">'.Panel::$site['site_url'].'/media?action=view&id='.$media['id'].'</a>"&gt;link Text&lt;/a&gt;</code></li>
+							<li class="list-group-item">
+								<a class="btn btn-primary"
+								href="'.$p->Url().'/action/media/edit/'.$media['id'].'"
+								title="'.Panel::$lang['Edit_File'].'"><i class="fa fa-pencil-square-o"></i></a>
+								<a class="btn btn-warning"
+								href="'.$p->Url().'/media/uploads/'.$media['id'].'"
+								title="'.Panel::$lang['Upload_media'].'"><i class="fa fa-upload"></i></a>
+								<a class="btn btn-danger"
+								onclick="return confirm(\''.Panel::$lang['Are_you_sure_to_delete'].' !\')"
+								href="'.$p->Url().'/action/media/removefile/'.Token::generate().'/'.$media['id'].'"
+								title="'.Panel::$lang['Remove_File'].'"><i class="fa fa-trash-o"></i></a>
+							</li>
+						</ul>
+						</div>
+					</div>';
 				}
 			}
 		}
@@ -464,7 +464,7 @@ $p->route(array('/media','/media/(:num)'),function($offset = 1) use($p){
 		));
 
 	}else{
-		Request::redirect($p::$site['url'].'/'.$p::$site['backend_folder']);
+		Request::redirect($p::$site['site_url'].'/'.$p::$site['backend_folder']);
 	}
 });
 
@@ -489,23 +489,22 @@ $p->route(array('/templates','/templates/(:num)'),function($offset = 1) use($p){
 		$per_page = $p::$site['backend_pagination_pages'];
 		$content = File::scan(THEMES,'.tpl');
 
-
 		// import themes
 		if(Request::post('importZipFile')){
 			if(Request::post('token')){
-					$filename = $_FILES['importfile']['tmp_name'];
-					$name = $_FILES['importfile']['name'];
-					$target_path = CACHE.'/'.$name;
-					if(move_uploaded_file($filename, $target_path)) {
-							sleep(1);
-							$p->unZip($target_path,THEMES);
-							// set notification
-							$p->setMsg($p::$lang['Success_save']);
-							// redirect
-							Request::redirect($p->Url().'/templates');
-					} else {  
-						$p->setMsg('There was a problem with the upload. Please try again.');
-					}
+				$filename = $_FILES['importfile']['tmp_name'];
+				$name = $_FILES['importfile']['name'];
+				$target_path = CACHE.'/'.$name;
+				if(move_uploaded_file($filename, $target_path)) {
+					sleep(1);
+					$p->unZip($target_path,THEMES);
+					// set notification
+					$p->setMsg($p::$lang['Success_save']);
+					// redirect
+					Request::redirect($p->Url().'/templates');
+				} else {  
+					$p->setMsg('There was a problem with the upload. Please try again.');
+				}
 			}else{
 				die('csrf detect !');
 			}
@@ -519,14 +518,14 @@ $p->route(array('/templates','/templates/(:num)'),function($offset = 1) use($p){
 			$prev = '';
 			$next = '';
 			if($offset > 1) {
-					$prev = '<a class="btn btn-primary" href="'.$p->Url().'/templates/'.($offset - 1).'"><i class="fa fa-arrow-left"></i></a>';
+				$prev = '<a class="btn btn-primary" href="'.$p->Url().'/templates/'.($offset - 1).'"><i class="fa fa-arrow-left"></i></a>';
 			} else {
-					$prev = '<span class="btn black"><i class="fa fa-arrow-left"></i></span>';
+				$prev = '<span class="btn black"><i class="fa fa-arrow-left"></i></span>';
 			}
 			if($offset < ceil(count($content) / $per_page)) {
-					$next = '<a class="btn btn-primary" href="' . $p->Url().'/templates/'.($offset + 1).'"><i class="fa fa-arrow-right"></i></a>';
+				$next = '<a class="btn btn-primary" href="' . $p->Url().'/templates/'.($offset + 1).'"><i class="fa fa-arrow-right"></i></a>';
 			} else {
-					$next = '<span class="btn black"><i class="fa fa-arrow-right"></i></span>';
+				$next = '<span class="btn black"><i class="fa fa-arrow-right"></i></span>';
 			}
 			// show pages
 			$p->view('templates',array(
@@ -549,7 +548,7 @@ $p->route(array('/templates','/templates/(:num)'),function($offset = 1) use($p){
 			));
 		}
 	}else{
-		Request::redirect($p::$site['url'].'/'.$p::$site['backend_folder']);
+		Request::redirect($p::$site['site_url'].'/'.$p::$site['backend_folder']);
 	}
 });
 
@@ -578,14 +577,14 @@ $p->route(array('/stylesheets','/stylesheets/(:num)'),function($offset = 1) use(
 			$prev = '';
 			$next = '';
 			if($offset > 1) {
-					$prev = '<a class="btn btn-primary" href="'.$p->Url().'/stylesheets/'.($offset - 1).'"><i class="fa fa-arrow-left"></i></a>';
+				$prev = '<a class="btn btn-primary" href="'.$p->Url().'/stylesheets/'.($offset - 1).'"><i class="fa fa-arrow-left"></i></a>';
 			} else {
-					$prev = '<span class="btn black"><i class="fa fa-arrow-left"></i></span>';
+				$prev = '<span class="btn black"><i class="fa fa-arrow-left"></i></span>';
 			}
 			if($offset < ceil(count($content) / $per_page)) {
-					$next = '<a class="btn btn-primary" href="' . $p->Url().'/stylesheets/'.($offset + 1).'"><i class="fa fa-arrow-right"></i></a>';
+				$next = '<a class="btn btn-primary" href="' . $p->Url().'/stylesheets/'.($offset + 1).'"><i class="fa fa-arrow-right"></i></a>';
 			} else {
-					$next = '<span class="btn black"><i class="fa fa-arrow-right"></i></span>';
+				$next = '<span class="btn black"><i class="fa fa-arrow-right"></i></span>';
 			}
 			// show pages
 			$p->view('templates',array(
@@ -608,7 +607,7 @@ $p->route(array('/stylesheets','/stylesheets/(:num)'),function($offset = 1) use(
 			));
 		}
 	}else{
-		Request::redirect($p::$site['url'].'/'.$p::$site['backend_folder']);
+		Request::redirect($p::$site['site_url'].'/'.$p::$site['backend_folder']);
 	}
 });
 
@@ -634,14 +633,14 @@ $p->route(array('/javascript','/javascript/(:num)'),function($offset = 1) use($p
 			$prev = '';
 			$next = '';
 			if($offset > 1) {
-					$prev = '<a class="btn btn-primary" href="'.$p->Url().'/javascript/'.($offset - 1).'"><i class="fa fa-arrow-left"></i></a>';
+				$prev = '<a class="btn btn-primary" href="'.$p->Url().'/javascript/'.($offset - 1).'"><i class="fa fa-arrow-left"></i></a>';
 			} else {
-					$prev = '<span class="btn black"><i class="fa fa-arrow-left"></i></span>';
+				$prev = '<span class="btn black"><i class="fa fa-arrow-left"></i></span>';
 			}
 			if($offset < ceil(count($content) / $per_page)) {
-					$next = '<a class="btn btn-primary" href="' . $p->Url().'/javascript/'.($offset + 1).'"><i class="fa fa-arrow-right"></i></a>';
+				$next = '<a class="btn btn-primary" href="' . $p->Url().'/javascript/'.($offset + 1).'"><i class="fa fa-arrow-right"></i></a>';
 			} else {
-					$next = '<span class="btn black"><i class="fa fa-arrow-right"></i></span>';
+				$next = '<span class="btn black"><i class="fa fa-arrow-right"></i></span>';
 			}
 			// show pages
 			$p->view('templates',array(
@@ -664,7 +663,7 @@ $p->route(array('/javascript','/javascript/(:num)'),function($offset = 1) use($p
 			));
 		}
 	}else{
-		Request::redirect($p::$site['url'].'/'.$p::$site['backend_folder']);
+		Request::redirect($p::$site['site_url'].'/'.$p::$site['backend_folder']);
 	}
 });
 
@@ -701,6 +700,6 @@ $p->route('/backups',function() use($p){
 			));
 		}
 	}else{
-		Request::redirect($p::$site['url'].'/'.$p::$site['backend_folder']);
+		Request::redirect($p::$site['site_url'].'/'.$p::$site['backend_folder']);
 	}
 });

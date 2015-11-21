@@ -31,7 +31,7 @@ $p->route('/action/logout', function() use($p){
   if(Session::exists('user')){
 	Session::delete('user');
 	Session::destroy();
-	Request::redirect($p::$site['url']);
+	Request::redirect($p::$site['site_url']);
   }
 });
 

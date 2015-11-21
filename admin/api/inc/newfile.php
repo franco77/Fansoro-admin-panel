@@ -138,19 +138,20 @@ $p->route('/action/uploads/newfile/(:any)/(:any)', function($token,$file) use($p
 				'html' => '
 						<div class="row">
 							<div class="col-lg-12">
-								'.$error.'
-								<h3><b>'.Panel::$lang['Upload_file'].' on:</b> '.$path.'</h3>
-							</div>
-						</div>
-						<div class="row">
-							<div class="col-lg-12">
-								<form method="post" action="" enctype="multipart/form-data">
+								<form  class="form-inline" method="post" action="" enctype="multipart/form-data">
 									<input type="hidden" name="token" value="'.Token::generate().'">
-									<input name="file" class="upload" type="file" required/>
-									<br>
+									<div class="form-group">
+										<label>
+											'.Panel::$lang['Upload_file'].'<code>'.$path.'</code>
+										</label>
+									</div>
+									<div class="form-group">
+										<input name="file" class="upload form-control" type="file" required/>
+									</div>
 									<input class="btn btn-primary"  type="submit" name="uploadFile" value="'.Panel::$lang['Upload'].'">
 									<a class="btn btn-danger" href="'.$p->url().'/uploads">'.Panel::$lang['Cancel'].'</a>
 								</form>
+								'.$error.'
 							</div>
 						</div>'
 			));
@@ -216,14 +217,14 @@ $p->route('/media/create',function($offset = 1) use($p){
 						$height = Request::post('height');
 						$path = PUBLICFOLDER.'/media/album_thumbs/album_'.$id.'.'.File::ext($_FILES['file_upload']['name']);
 						if($p->resize($name,$path,$width,$height)){
-								// save content
-								File::setContent($jsonFile,json_encode($json));
-								// create dir
-								Dir::create(PUBLICFOLDER.'/media/albums/album_'.$id);
-								// set notification
-								$p->setMsg($p::$lang['Success_save']);
-								// redirect
-								Request::redirect($p->Url().'/media');
+							// save content
+							File::setContent($jsonFile,json_encode($json));
+							// create dir
+							Dir::create(PUBLICFOLDER.'/media/albums/album_'.$id);
+							// set notification
+							$p->setMsg($p::$lang['Success_save']);
+							// redirect
+							Request::redirect($p->Url().'/media');
 						}
 					}
 				}
@@ -237,30 +238,36 @@ $p->route('/media/create',function($offset = 1) use($p){
 						<div class="col-lg-6">
 							'.$error.'
 							<form class="formFile" method="post"  enctype="multipart/form-data">
+								<div class="form-group">
 									<input type="hidden" name="token" value="'.Token::generate().'"/>
 									<input type="file" class="form-control" name="file_upload" id="image-input" accept="image/x-png, image/gif, image/jpeg"  />
-									<br>
+								</div>
+								<div class="form-group">
 									<input type="number" class="form-control" name="width" placeholder="width" required>
-									<br>
+								</div>
+								<div class="form-group">
 									<input type="number" class="form-control" name="height" placeholder="height" required>
-									<br>
+								</div>
+								<div class="form-group">
 									<input type="text" class="form-control" name="title" placeholder="title" required>
-									<br>
+								</div>
+								<div class="form-group">
 									<textarea name="desc" class="form-control" rows="3" placeholder="Description" required></textarea>
-									<br>
+								</div>
+								<div class="form-group">
 									<input type="text"  class="form-control"  required  name="tag" id="tag"  placeholder="Tag" required>
-									<br>
+								</div>
 									<a href="'.$p->Url().'/media"  class="btn btn-danger">'.Panel::$lang['Cancel'].'</a>
 									<input type="submit" name="upload" id="upload" class="btn btn-primary" value="'.Panel::$lang['Upload'].'">
 							</form>
 						</div>
 						<div  class="col-lg-6">
-							<img  id="image-display" class="img-thumbnail" src="'.$p->Assets('nomediapreview.jpg','img').'"/>
+							<div class="thumbnail">
+								<img  id="image-display" class="img-thumbnail img-responsive" src="'.$p->Assets('nomediapreview.jpg','img').'"/>
+							</div>
 						</div>
 					</div>';
-
-
-
+					
 		// show Media
 		$p->view('actions',array(
 			'title' => Panel::$lang['Create_media'],
@@ -269,7 +276,7 @@ $p->route('/media/create',function($offset = 1) use($p){
 		));
 
 	}else{
-		Request::redirect($p::$site['url'].'/'.$p::$site['backend_folder']);
+		Request::redirect($p::$site['site_url'].'/'.$p::$site['backend_folder']);
 	}
 });
 
@@ -357,14 +364,14 @@ $p->route(array('/media/uploads/(:num)','/media/uploads/(:num)/(:num)'),function
 			rsort($scan);
 			$showPag = array_chunk($scan, $per_page);
 			if($offset > 1) {
-					$prev = '<a class="btn btn-primary" href="'.$p->Url().'/media/uploads/'.$id.'/'.($offset - 1).'"><i class="fa fa-arrow-left"></i></a>';
+				$prev = '<a class="btn btn-primary" href="'.$p->Url().'/media/uploads/'.$id.'/'.($offset - 1).'"><i class="fa fa-arrow-left"></i></a>';
 			} else {
-					$prev = '<span class="btn black"><i class="fa fa-arrow-left"></i></span>';
+				$prev = '<span class="btn black"><i class="fa fa-arrow-left"></i></span>';
 			}
 			if($offset < ceil(count($scan) / $per_page)) {
-					$next = '<a class="btn btn-primary" href="' . $p->Url().'/media/uploads/'.$id.'/'.($offset + 1).'"><i class="fa fa-arrow-right"></i></a>';
+				$next = '<a class="btn btn-primary" href="' . $p->Url().'/media/uploads/'.$id.'/'.($offset + 1).'"><i class="fa fa-arrow-right"></i></a>';
 			} else {
-					$next = '<span class="btn black"><i class="fa fa-arrow-right"></i></span>';
+				$next = '<span class="btn black"><i class="fa fa-arrow-right"></i></span>';
 			}
 
 
@@ -388,7 +395,8 @@ $p->route(array('/media/uploads/(:num)','/media/uploads/(:num)/(:num)'),function
 								</div>
 								<br>
 								<div class="label label-primary">
-										<b><i class="ti-harddrive"></i> : </b>  '.$p->folderSize(ROOTBASE.$json[$id]['images']).'
+										<b><i class="fa fa-cloud"></i> : </b>  
+										'.$p->folderSize(ROOTBASE.$json[$id]['images']).'
 								</div>
 							</div>
 							<div class="modal fade" id="uploadFile" role="dialog">
@@ -401,18 +409,18 @@ $p->route(array('/media/uploads/(:num)','/media/uploads/(:num)/(:num)'),function
 											<div class="modal-body">
 												<div class="row">
 														<div class="col-lg-6">
-																<form method="post" class="form" enctype="multipart/form-data">
-																		<input type="hidden" name="token" value="'.Token::generate().'"/>
-																		<input type="file"  class="form-control" name="media_upload"  id="media-input" accept="image/x-png, image/gif, image/jpeg"  required/>
-																		<br>
-																		<input type="number" class="form-control"  name="width" value="'.$json[$id]['width'].'" required>
-																		<br>
-																		<input type="number" class="form-control"  name="height" value="'.$json[$id]['height'].'" required>
-																		<br>
-																		<input type="submit" name="uploadMedia" class="btn btn-primary" value="Upload">
-																		<button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-																		<br>
-																</form>
+															<form method="post" class="form" enctype="multipart/form-data">
+																<input type="hidden" name="token" value="'.Token::generate().'"/>
+																<input type="file"  class="form-control" name="media_upload"  id="media-input" accept="image/x-png, image/gif, image/jpeg"  required/>
+																<br>
+																<input type="number" class="form-control"  name="width" value="'.$json[$id]['width'].'" required>
+																<br>
+																<input type="number" class="form-control"  name="height" value="'.$json[$id]['height'].'" required>
+																<br>
+																<input type="submit" name="uploadMedia" class="btn btn-primary" value="Upload">
+																<button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+																<br>
+															</form>
 														</div>
 														<div class="col-lg-6">
 																<img  id="media-display" 
@@ -431,7 +439,7 @@ $p->route(array('/media/uploads/(:num)','/media/uploads/(:num)/(:num)'),function
 
 			// all media files
 			foreach($showPag[$offset - 1] as $media) {
-				$image = str_replace(PUBLICFOLDER, Panel::$site['url'].'/public', $media);
+				$image = str_replace(PUBLICFOLDER, Panel::$site['site_url'].'/public', $media);
 				$templateAll .= '
 						<div class="thumb">
 							<a class="btn btn-danger" onclick="return confirm(\''.Panel::$lang['Are_you_sure_to_delete'].' !\')"
@@ -458,23 +466,36 @@ $p->route(array('/media/uploads/(:num)','/media/uploads/(:num)/(:num)'),function
 
 		// if folder is empty
 		}else{
-			$templateAll .= '<div class="row">
-								<div class="col-lg-12">
-									'.$error.'
-									<h3><b>'.Panel::$lang['Upload_file'].' on:</b> '.$json[$id]['title'].'</h3>
-								</div>
-							</div>
+			$templateAll .= '
 							<div class="row">
-								<div class="col-lg-12">
-									<div class="info">
-										<form method="post"  enctype="multipart/form-data">
-												<input type="hidden" name="token" value="'.Token::generate().'"/>
-												<input type="file" name="media_upload" accept="image/x-png, image/gif, image/jpeg"  required/>
-												<input type="number" name="width" value="'.$json[$id]['width'].'" required>
-												<input type="number" name="height" value="'.$json[$id]['height'].'" required>
+								<div class="col-lg-4 col-sm-6">
+										<form class="form" method="post"  enctype="multipart/form-data">
+											<input type="hidden" name="token" value="'.Token::generate().'"/>
+											<div class="form-group">
+												<label>
+													'.Panel::$lang['Upload_file'].'
+													<code>'.$json[$id]['title'].'</code>
+												</label>
+											</div>
+											<div class="form-group">	
+												<input type="file"  id="media-input" class="form-control" name="media_upload" accept="image/x-png, image/gif, image/jpeg"  required/>
+											</div>
+											<div class="form-group">
+												<input type="nrumber"  class="form-control" name="width" value="'.$json[$id]['width'].'" required>
+											</div>
+											<div class="form-group">
+												<input type="number"  class="form-control" name="height" value="'.$json[$id]['height'].'" required>
+											</div>
+											
 												<a href="'.$p->Url().'/media"  class="btn btn-danger">'.Panel::$lang['Cancel'].'</a>
 												<input type="submit" name="uploadMedia" id="upload" class="btn btn-primary" value="'.Panel::$lang['Upload'].'">
 										</form>
+										'.$error.'
+									</div>
+									<div class="col-lg-4 col-sm-6">
+										<div class="thumbnail">
+											<img  id="media-display" class="thumbnail img-responsive" src="'.$p->Assets('nomediapreview.jpg','img').'"/>
+										</div>
 									</div>
 								</div>
 							</div>';
@@ -487,7 +508,7 @@ $p->route(array('/media/uploads/(:num)','/media/uploads/(:num)/(:num)'),function
 				));
 		}
 	}else{
-		Request::redirect($p::$site['url'].'/'.$p::$site['backend_folder']);
+		Request::redirect($p::$site['site_url'].'/'.$p::$site['backend_folder']);
 	}
 });
 
@@ -606,6 +627,8 @@ $p->route('/action/compress/public/(:any)' ,function($token) use($p){
 			$dir = PUBLICFOLDER;
 			$dest = BACKUPS.'/'.$name;
 			if($p->Zip($dir,$dest)){
+				// set notification
+				$p->setMsg($p::$lang['Success_save']);
 				Request::redirect($p->Url().'/backups');
 			};
 		}else{
@@ -626,6 +649,8 @@ $p->route('/action/compress/storage/(:any)' ,function($token) use($p){
 			$dir = STORAGE;
 			$dest = BACKUPS.'/'.$name;
 			if($p->Zip($dir,$dest)){
+				// set notification
+				$p->setMsg($p::$lang['Success_save']);
 				Request::redirect($p->Url().'/backups');
 			};
 		}else{
@@ -645,6 +670,8 @@ $p->route('/action/compress/themes/(:any)' ,function($token) use($p){
 			$dir = THEMES;
 			$dest = BACKUPS.'/'.$name;
 			if($p->Zip($dir,$dest)){
+				// set notification
+				$p->setMsg($p::$lang['Success_save']);
 				Request::redirect($p->Url().'/backups');
 			};
 		}else{

@@ -36,8 +36,16 @@ $p->route('/action/newfolder/(:any)/(:any)', function($token,$file) use($p){
 						if(!Dir::exists($foldername)){
 								// create folder
 								Dir::create($foldername);
+								$tmpl = '
+---
+title: title goes here
+description:
+keywords:
+template: index
+---
+';
 								// create index file with folder name
-								File::setContent($foldername.'/index.md',"---\ntitle: Holas\n---");
+								File::setContent($foldername.'/index.md',$tmpl);
 								// set notification
 								$p->setMsg($p::$lang['Success_save']);
 								// redirect to edit index

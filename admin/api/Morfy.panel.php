@@ -29,7 +29,7 @@ class Panel {
 	 *
 	 * @var string
 	 */
-	public $version = '2.0.2';
+	public $version = '2.1.0';
 
 
 	/**
@@ -55,11 +55,11 @@ class Panel {
 	 * Load Config
 	 */
 	protected function loadConfig(){
-			if (file_exists($site_config_path  = SITE)) {
-					static::$site  = Spyc::YAMLLoad(file_get_contents($site_config_path));
-			} else {
-					die("Oops.. Where is config files ?!");
-			}
+		if (file_exists($site_config_path  = SITE)) {
+				static::$site  = Spyc::YAMLLoad(file_get_contents($site_config_path));
+		} else {
+				die("Oops.. Where is config files ?!");
+		}
 	}
 
 
@@ -69,11 +69,11 @@ class Panel {
 	 * Load Language
 	 */
 	protected function loadLanguage(){
-			if (file_exists($language  = ROOT.'/'.'lang'.'/'.static::$site['backend_language'].'.yml')) {
-					static::$lang = Spyc::YAMLLoad(file_get_contents($language));
-			} else {
-					die("Oops.. Where is language file ?!");
-			}
+		if (file_exists($language  = ROOT.'/'.'lang'.'/'.static::$site['backend_language'].'.yml')) {
+				static::$lang = Spyc::YAMLLoad(file_get_contents($language));
+		} else {
+				die("Oops.. Where is language file ?!");
+		}
 	}
 
 
@@ -82,27 +82,27 @@ class Panel {
 	public function getMsg(){
 		//Top of file
 		if(Session::get('msg')){
-				$message = Session::get('msg');
-				Session::delete('msg');
+			$message = Session::get('msg');
+			Session::delete('msg');
 		}
 		if(isset($message)){
-				echo 
-					'<div class="alert alert-success notification">
-						<img src="'.$this->Assets('morfy-icon.png','img').'" />
-						<span>'.$message.'</span>
-					</div>
-					<script type="text/javascript">
-						var notif = document.querySelector(".notification"),
-						m = setTimeout(function(){
-							notif.classList.add("notif-hide");
-							var d = setTimeout(function(){notif.remove();clearTimeout(d);},1000);
-							clearTimeout(m);
-						},3000);
-					</script>';
+			echo 
+				'<div class="alert alert-success notification">
+					<img src="'.$this->Assets('morfy-icon.png','img').'" />
+					<span>'.$message.'</span>
+				</div>
+				<script type="text/javascript">
+					var notif = document.querySelector(".notification"),
+					m = setTimeout(function(){
+						notif.classList.add("notif-hide");
+						var d = setTimeout(function(){notif.remove();clearTimeout(d);},1000);
+						clearTimeout(m);
+					},3000);
+				</script>';
 		}
 	}
 	public function setMsg($msg){
-			Session::set('msg',$msg);
+		Session::set('msg',$msg);
 	}
 
 
@@ -154,15 +154,15 @@ class Panel {
 	*   Short text  TextCut('lorem ipsum dolor',$chars='25')
 	*/
 	public function TextCut($text,$chars='25') {
-			// length of text
-			$length = strlen($text);
-			// strip tags
-			$text = strip_tags($text);
-			// reducce
-			$text = substr($text,0,$chars);
-			// in end put ..
-			if($length > $chars) { $text = $text."..."; }
-			return $text;
+		// length of text
+		$length = strlen($text);
+		// strip tags
+		$text = strip_tags($text);
+		// reducce
+		$text = substr($text,0,$chars);
+		// in end put ..
+		if($length > $chars) { $text = $text."..."; }
+		return $text;
 	}
 
 
@@ -283,36 +283,6 @@ class Panel {
 	}
 
 
-	/**
-	*   Get either a Gravatar URL or complete image tag for a specified email address.
-	*
-	* @param string $email The email address
-	* @param string $s Size in pixels, defaults to 80px [ 1 - 2048 ]
-	* @param string $d Default imageset to use [ 404 | mm | identicon | monsterid | wavatar ]
-	* @param string $r Maximum rating (inclusive) [ g | pg | r | x ]
-	* @param boole $img True to return a complete IMG tag False for just the URL
-	* @param array $atts Optional, additional key/value attributes to include in the IMG tag
-	* @return String containing either just a URL or a complete image tag
-	* @source http://gravatar.com/site/implement/images/php/
-	*/
-	public function get_gravatar( $email, $s = 80, $d = 'mm', $r = 'g', $img = false, $atts = array() ) {
-			$url = 'http://www.gravatar.com/avatar/';
-			$url .= md5( strtolower( trim( $email ) ) );
-			$url .= "?s=$s&d=$d&r=$r";
-			if ( $img ) {
-					$url = '<img src="' . $url . '"';
-					foreach ( $atts as $key => $val )
-							$url .= ' ' . $key . '="' . $val . '"';
-					$url .= ' />';
-			}
-			return $url;
-	}
-
-
-
-
-
-
 
 	/**
 	* Image resize
@@ -371,8 +341,8 @@ class Panel {
 	* @return var
 	*/
 	public  function url(){
-			// Create the Home URL
-			return static::$site['url'].'/'.static::$site['backend_folder'];
+		// Create the Home URL
+		return static::$site['site_url'].'/'.static::$site['backend_folder'];
 	}
 
 
@@ -393,8 +363,8 @@ class Panel {
 	* @return require
 	*/
 	public function partial($path, $vars = array()) {
-			if($vars) extract($vars);
-			include_once PARTIALS.'/'. trim($path, '/') . '.html';
+		if($vars) extract($vars);
+		include_once PARTIALS.'/'. trim($path, '/') . '.html';
 	}
 
 
@@ -491,28 +461,16 @@ class Panel {
 	*/
 	public function lauch() {
 
-		// Use the Force...
-		include LIBRARIES.'/Force/ClassLoader/ClassLoader.php';
-
-		// Map Classes
-		ClassLoader::mapClasses(
-			array(
-				// Yaml Parser/Dumper
-				'Spyc'        => LIBRARIES.'/Spyc/Spyc.php',
-				// Force Components
-				'Arr'         => LIBRARIES.'/Force/Arr/Arr.php',
-				'Session'     => LIBRARIES.'/Force/Session/Session.php',
-				'Token'       => LIBRARIES.'/Force/Token/Token.php',
-				'Request'     => LIBRARIES.'/Force/Http/Request.php',
-				'Response'    => LIBRARIES.'/Force/Http/Response.php',
-				'Url'         => LIBRARIES.'/Force/Url/Url.php',
-				'File'        => LIBRARIES.'/Force/FileSystem/File.php',
-				'Dir'         => LIBRARIES.'/Force/FileSystem/Dir.php'
-			)
-		);
-
-		// Register the ClassLoader to the SPL autoload stack.
-		ClassLoader::register();
+		// require classes
+		require_once(LIBRARIES.'/mustangostang/spyc/Spyc.php');
+		require_once(LIBRARIES.'/force/arr/Arr.php');
+		require_once(LIBRARIES.'/force/session/Session.php');
+		require_once(LIBRARIES.'/force/token/Token.php');
+		require_once(LIBRARIES.'/force/http/Request.php');
+		require_once(LIBRARIES.'/force/http/Response.php');
+		require_once(LIBRARIES.'/force/url/Url.php');
+		require_once(LIBRARIES.'/force/filesystem/File.php');
+		require_once(LIBRARIES.'/force/filesystem/Dir.php');
 
 		// Load config file
 		$this->loadConfig();
@@ -524,20 +482,20 @@ class Panel {
 		Url::runSanitizeURL();
 
 		// Send default header and set internal encoding
-		header('Content-Type: text/html; charset='.static::$site['charset']);
+		header('Content-Type: text/html; charset='.static::$site['backend_charset']);
 		function_exists('mb_language') and mb_language('uni');
-		function_exists('mb_regex_encoding') and mb_regex_encoding(static::$site['charset']);
-		function_exists('mb_internal_encoding') and mb_internal_encoding(static::$site['charset']);
+		function_exists('mb_regex_encoding') and mb_regex_encoding(static::$site['backend_charset']);
+		function_exists('mb_internal_encoding') and mb_internal_encoding(static::$site['backend_charset']);
 
 		// Gets the current configuration setting of magic_quotes_gpc and kill magic quotes
 		if (get_magic_quotes_gpc()) {
-				function stripslashesGPC(&$value){
-						$value = stripslashes($value);
-				}
-				array_walk_recursive($_GET, 'stripslashesGPC');
-				array_walk_recursive($_POST, 'stripslashesGPC');
-				array_walk_recursive($_COOKIE, 'stripslashesGPC');
-				array_walk_recursive($_REQUEST, 'stripslashesGPC');
+			function stripslashesGPC(&$value){
+					$value = stripslashes($value);
+			}
+			array_walk_recursive($_GET, 'stripslashesGPC');
+			array_walk_recursive($_POST, 'stripslashesGPC');
+			array_walk_recursive($_COOKIE, 'stripslashesGPC');
+			array_walk_recursive($_REQUEST, 'stripslashesGPC');
 		}
 
 		// Start the session
@@ -550,10 +508,10 @@ class Panel {
 		}
 		$url = trim($url, '/');
 		foreach($this->routes as $pattern => $callback) {
-				if(preg_match($pattern, $url, $params)) {
-						array_shift($params);
-						return call_user_func_array($callback, array_values($params));
-				}
+			if(preg_match($pattern, $url, $params)) {
+					array_shift($params);
+					return call_user_func_array($callback, array_values($params));
+			}
 		}
 	}
 }

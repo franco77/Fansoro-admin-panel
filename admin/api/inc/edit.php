@@ -105,21 +105,20 @@ $p->route('/action/media/edit/(:num)',function($id) use($p){
 						die('Extension not allowed');
 					}
 
-						// move to upload dire
-						$name = $_FILES['file_upload'];
-						$width = Request::post('width');
-						$height = Request::post('height');
-						$path = PUBLICFOLDER.'/media/album_thumbs/album_'.$id.'.'.File::ext($_FILES['file_upload']['name']);
-						// if save image
-						if($p->resize($name,$path,$width,$height)){
-							// save content
-							File::setContent($jsonFile,json_encode($json));
-							// set notification
-							$p->setMsg($p::$lang['Success_edit']);
-							// redirect
-							Request::redirect($p->Url().'/media');
-						}
-
+					// move to upload dire
+					$name = $_FILES['file_upload'];
+					$width = Request::post('width');
+					$height = Request::post('height');
+					$path = PUBLICFOLDER.'/media/album_thumbs/album_'.$id.'.'.File::ext($_FILES['file_upload']['name']);
+					// if save image
+					if($p->resize($name,$path,$width,$height)){
+						// save content
+						File::setContent($jsonFile,json_encode($json));
+						// set notification
+						$p->setMsg($p::$lang['Success_edit']);
+						// redirect
+						Request::redirect($p->Url().'/media');
+					}
 
 				}else{
 					// resize old thumb if change values
@@ -144,31 +143,39 @@ $p->route('/action/media/edit/(:num)',function($id) use($p){
 
 		// template
 		$template = ' 
-						<div class="row">
-							<div class="col-lg-6">
+					<div class="row">
+						<div class="col-lg-6">
 							'.$error.'
-							<form class="formFile" method="post"  enctype="multipart/form-data">
+							<form class="form-horizontal" method="post"  enctype="multipart/form-data">
 								<input type="hidden" name="token" value="'.Token::generate().'"/>
-								<input type="file" name="file_upload" id="image-input"  value="'.$json[$id]['thumb'].'" accept="image/x-png, image/gif, image/jpeg"  />
-								<br>
-								<input type="number" class="form-control" name="width" value="'.$json[$id]['width'].'" required>
-								<br>
-								<input type="number" class="form-control" name="height" value="'.$json[$id]['height'].'" required>
-								<br>
-								<input type="text" class="form-control" name="title" value="'.$json[$id]['title'].'" required>
-								<br>
-								<textarea name="desc" class="form-control" rows="3" required>'.$json[$id]['desc'].'</textarea>
-								<br>
-								<input type="text" class="form-control" required name="tag" value="'.$json[$id]['tag'].'" required>
-								<br>
-								<a href="'.$p->Url().'/media" role="button" class="btn btn-danger">'.Panel::$lang['Cancel'].'</a>
+								<div class="form-group">
+									<input type="file" name="file_upload" id="image-input" class="form-control" value="'.$json[$id]['thumb'].'" accept="image/x-png, image/gif, image/jpeg"  />
+								</div>
+								<div class="form-group">
+									<input type="number" class="form-control" name="width" value="'.$json[$id]['width'].'" required>
+								</div>
+								<div class="form-group">
+									<input type="number" class="form-control" name="height" value="'.$json[$id]['height'].'" required>
+								</div>
+								<div class="form-group">
+									<input type="text" class="form-control" name="title" value="'.$json[$id]['title'].'" required>
+								</div>
+								<div class="form-group">
+									<textarea name="desc" class="form-control" rows="3" required>'.$json[$id]['desc'].'</textarea>
+								</div>
+								<div class="form-group">
+									<input type="text" class="form-control" required name="tag" value="'.$json[$id]['tag'].'" required>
+								</div>
 								<input type="submit" name="upload" id="upload" class="btn btn-primary" value="'.Panel::$lang['Upload'].'">
+								<a href="'.$p->Url().'/media" role="button" class="btn btn-danger">'.Panel::$lang['Cancel'].'</a>
 							</form>
+						</div>
+						<div class="col-lg-6">
+							<div class="thumbnail">
+								<img class="img-responsive" id="image-display" src="'.Panel::$site['site_url'].$json[$id]['thumb'].'?timestamp=1357571065"/>
 							</div>
-							<div class="col-lg-6">
-							<img class="img-thumbnail" id="image-display"  width="100%" src="'.Panel::$site['url'].$json[$id]['thumb'].'?timestamp=1357571065"/>
-							</div>
-						</div>';
+						</div>
+					</div>';
 
 
 
@@ -180,7 +187,7 @@ $p->route('/action/media/edit/(:num)',function($id) use($p){
 		));
 
 	}else{
-		Request::redirect($p::$site['url'].'/'.$p::$site['backend_folder']);
+		Request::redirect($p::$site['site_url'].'/'.$p::$site['backend_folder']);
 	}
 });
 
@@ -247,8 +254,9 @@ $p->route('/action/themes/edit/(:any)/(:any)', function($token,$file) use($p){
 								</div>
 								<div class="row">
 									<div class="col-lg-12">
-										<textarea class="editor form-control" rows="20" name="updateFile">'.File::getContent($path).'</textarea>
-										<br>
+										<div class="form-group">
+											<textarea class="editor form-control" rows="20" name="updateFile">'.File::getContent($path).'</textarea>
+										</div>
 										<input class="btn btn-primary" type="submit" name="saveFile" value="'.Panel::$lang['Update'].'">
 										<a class="btn btn-danger" role="button" href="'.$p->url().'/'.$url.'">'.Panel::$lang['Cancel'].'</a>
 									</div>
@@ -259,7 +267,7 @@ $p->route('/action/themes/edit/(:any)/(:any)', function($token,$file) use($p){
 			die('crsf Detect');
 		}
 	}else{
-		Request::redirect($p::$site['url'].'/'.$p::$site['backend_folder']);
+		Request::redirect($p::$site['site_url'].'/'.$p::$site['backend_folder']);
 	}
 });
 
@@ -275,47 +283,95 @@ $p->route('/action/themes/edit/(:any)/(:any)', function($token,$file) use($p){
 * @name   Edit site
 * @desc   Edit site ( :any use base64_encode remenber decode file)
 */
-$p->route('/config', function() use($p){
+$p->route('/config/site', function() use($p){
 	if(Session::exists('user')){
 
-
-	// update file
-	if(Request::post('saveFile')){
-		if(Request::post('token')){
-		  $content = Request::post('updateFile');
-		  // save content
-		  File::setContent(SITE,$content);
-		  // set notification
-		  $p->setMsg($p::$lang['Success_edit']);
-		  // redirect
-		  Request::redirect($p->Url());
-		}else{
-		  die('crsf Detect!');
+		// update file
+		if(Request::post('saveFile')){
+			if(Request::post('token')){
+				$content = Request::post('updateFile');
+				// save content
+				File::setContent(SITE,$content);
+				// set notification
+				$p->setMsg($p::$lang['Success_edit']);
+				// redirect
+				Request::redirect($p->Url());
+			}else{
+				die('crsf Detect!');
+			}
 		}
-	}
 
-
-			$p->view('actions',array(
-				'url' => 'Config',
-				'title' => Panel::$lang['Config'],
-				'html' => ' <form method="post">
-								<div class="row">
-									<div class="col-lg-12">
-										<input type="hidden" name="token" value="'.Token::generate().'">
-										<h4><label class="label label-primary"><b>Name: </b> site.yml</label></h4>
-									</div>
+		$p->view('actions',array(
+			'url' => 'Config',
+			'title' => Panel::$lang['Siteyml'],
+			'html' => ' <form method="post">
+							<div class="row">
+								<div class="col-lg-12">
+									<input type="hidden" name="token" value="'.Token::generate().'">
+									<h4><label class="label label-primary"><b>Name: </b> '.Panel::$lang['Siteyml'].'.yml</label></h4>
 								</div>
-								<div class="row">
-									<div class="col-lg-12">
+							</div>
+							<div class="row">
+								<div class="col-lg-12">
+									<div class="form-group">
 										<textarea class="editor form-control" rows="20" name="updateFile">'.File::getContent(SITE).'</textarea>
-										<br>
-										<input class="btn btn-primary" type="submit"  name="saveFile" value="'.Panel::$lang['Update'].'">
-										<a class="btn btn-danger" role="button" href="'.$p->url().'">'.Panel::$lang['Cancel'].'</a>
 									</div>
+									<input class="btn btn-primary" type="submit"  name="saveFile" value="'.Panel::$lang['Update'].'">
+									<a class="btn btn-danger" role="button" href="'.$p->url().'">'.Panel::$lang['Cancel'].'</a>
 								</div>
-							</form>'
-			));
+							</div>
+						</form>'
+		));
 	}else{
-		Request::redirect($p::$site['url'].'/'.$p::$site['backend_folder']);
+		Request::redirect($p::$site['site_url'].'/'.$p::$site['backend_folder']);
+	}
+});
+
+
+/*
+* @name   Edit system
+* @desc   Edit system ( :any use base64_encode remenber decode file)
+*/
+$p->route('/config/system', function() use($p){
+	if(Session::exists('user')){
+
+		// update file
+		if(Request::post('saveFile')){
+			if(Request::post('token')){
+				$content = Request::post('updateFile');
+				// save content
+				File::setContent(SYSTEM,$content);
+				// set notification
+				$p->setMsg($p::$lang['Success_edit']);
+				// redirect
+				Request::redirect($p->Url());
+			}else{
+				die('crsf Detect!');
+			}
+		}
+
+		$p->view('actions',array(
+			'url' => 'Config',
+			'title' => Panel::$lang['Systemyml'],
+			'html' => ' <form method="post">
+							<div class="row">
+								<div class="col-lg-12">
+									<input type="hidden" name="token" value="'.Token::generate().'">
+									<h4><label class="label label-primary"><b>Name: </b> '.Panel::$lang['Systemyml'].'.yml</label></h4>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-lg-12">
+									<div class="form-group">
+										<textarea class="editor form-control" rows="20" name="updateFile">'.File::getContent(SYSTEM).'</textarea>
+									</div>
+									<input class="btn btn-primary" type="submit"  name="saveFile" value="'.Panel::$lang['Update'].'">
+									<a class="btn btn-danger" role="button" href="'.$p->url().'">'.Panel::$lang['Cancel'].'</a>
+								</div>
+							</div>
+						</form>'
+		));
+	}else{
+		Request::redirect($p::$site['site_url'].'/'.$p::$site['backend_folder']);
 	}
 });

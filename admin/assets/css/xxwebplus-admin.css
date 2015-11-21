@@ -158,6 +158,11 @@ ul.alert-dropdown {
         outline: none;
         background-color: #000 !important;
     }
+    .side-nav .collapse a:hover,
+    .side-nav .collapse a:focus {
+        outline: none;
+        background-color: #111!important;
+    }
 }
 
 .side-nav > li > ul {

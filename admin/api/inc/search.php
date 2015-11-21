@@ -110,10 +110,10 @@ $p->route('/action/searchfiles/(:any)', function($query = '') use($p) {
 								<div class="col-lg-6">
 									<h3><span class="btn btn-primary">'.$count.'</span>
 									results for '.$query.'</h3>
-										'.$result.'
-										<a class="btn btn-danger" href="'.$p->Url().'/uploads" >
-											'.Panel::$lang['back'].'
-										</a>
+									'.$result.'
+									<a class="btn btn-danger" href="'.$p->Url().'/uploads" >
+										'.Panel::$lang['back'].'
+									</a>
 								</div>
 							</div>'
 		));
@@ -164,10 +164,10 @@ $p->route('/action/searchmedia/(:any)', function($query = '') use($p) {
 								<div class="col-lg-6">
 									<h3><span class="btn btn-primary">'.$count.'</span>
 									results for '.$query.'</h3>
-										'.$result.'
-										<a class="btn btn-danger" href="'.$p->Url().'/media">
-											'.Panel::$lang['back'].'
-										</a>
+									'.$result.'
+									<a class="btn btn-danger" href="'.$p->Url().'/media">
+										'.Panel::$lang['back'].'
+									</a>
 								</div>
 							</div>'
 		));
@@ -222,10 +222,10 @@ $p->route('/action/searchinthemes/(:any)', function($query = '') use($p) {
 								<div class="col-lg-6">
 									<h3><span class="btn btn-primary">'.$count.'</span>
 									results for '.$query.'</h3>
-										'.$result.'
-										<a class="btn btn-danger" href="javascript:void(0);" onclick="return history.back(1)">
-											'.Panel::$lang['back'].'
-										</a>
+									'.$result.'
+									<a class="btn btn-danger" href="javascript:void(0);" onclick="return history.back(1)">
+										'.Panel::$lang['back'].'
+									</a>
 								</div>
 							</div>'
 		));

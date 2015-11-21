@@ -59,12 +59,50 @@ back_to_uploads: 			'Вернуться к загрузкам'
 no_preview_for_this_file: 	'Нет превьюшки для этого файла'
 Upload_file: 				'Загрузить файл'
 Upload: 					'Загрузить'
+Size: 						'Size'
+
+
+#media files
+Media:						'Media'
+All_media: 					'All media'
+Create_media: 				'Create media'
+Upload_media: 				'Upload images'
+Upload_empty: 				'The folder is empty'
+
+
+# media uploads
+Uploads_Media: 				'Uploads Media'
+Templates: 					'Templates'
+Stylesheets: 				'Stylesheets'
+Javascript: 				'Javascript'
+
+# Themes
+Zip_Public: 	'Zip Public'
+Zip_Storage: 'Zip Storage'
+Zip_Themes: 	'Zip Themes'
+
+#config
+Config: 'Configuration'
+Siteyml: 'Site'
+Systemyml: 'System'
+
+# backups
+Backups: 					'Backups'
+New_Backup: 				'New Backup'
+
+
+#diagnostic
+Diagnostic: 				'Diagnostic'
 
 # 404 not found
-Error_page: 'Страница не найдена в Morfy Panel'
+Error_page: 				'The request page not found in Morfy Panel'
+
+
 # cache
 Clear_cache: 'Clear cache'
 Success_cache: 'Your Cache has been clear'
+
+
 # modal and imports
 Import: 'Import'
 Import_blog_files: 'Import blog files'

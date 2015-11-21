@@ -13,23 +13,23 @@
 * @desc   Remove File ( :any use base64_encode remenber decode file)
 */
 $p->route('/action/removefile/(:any)/(:any)', function($token,$file) use($p){
-  if(Session::exists('user')){
-	if (Token::check($token)) {
-	  $filename = base64_decode($file);
-	  // check url
-	  $url = '';
-	  if(preg_match('/pages/', $filename)) $url = 'pages';
-	  else if(preg_match('/blocks/', $filename)) $url = 'blocks';
-	  // delete file
-	  File::delete($filename);
-	  // set notification
-	  $p->setMsg($p::$lang['Success_remove']);
-	  // redirect to edit index
-	  Request::redirect($p->url().'/'.$url);
-	}else{
-	  die('crsf Detect');
+	if(Session::exists('user')){
+		if (Token::check($token)) {
+			$filename = base64_decode($file);
+			// check url
+			$url = '';
+			if(preg_match('/pages/', $filename)) $url = 'pages';
+			else if(preg_match('/blocks/', $filename)) $url = 'blocks';
+			// delete file
+			File::delete($filename);
+			// set notification
+			$p->setMsg($p::$lang['Success_remove']);
+			// redirect to edit index
+			Request::redirect($p->url().'/'.$url);
+		}else{
+			die('crsf Detect');
+		}
 	}
-  }
 });
 
 
@@ -122,19 +122,19 @@ $p->route('/action/media/uploads/removefile/(:any)/(:any)', function($id,$file) 
 * @desc   Remove file on themes ( :any use base64_encode remenber decode file)
 */
 $p->route('/action/themes/removefile/(:any)/(:any)', function($id,$file) use($p){
-  if(Session::exists('user')){
-	  // function to redirect
-	  $url = '';
-	  if(preg_match('/css/', $filename)) $url = 'stylesheets';
-	  else if(preg_match('/js/', $filename)) $url = 'javascript';
-	  else $url = 'templates';
-	  // delete file
-	  File::delete(base64_decode($file));
-	  // set notification
-	  $p->setMsg($p::$lang['Success_remove']);
-	  // redirect
-	  Request::redirect($p->Url().'/'.$url);
-  }
+	if(Session::exists('user')){
+		// function to redirect
+		$url = '';
+		if(preg_match('/css/', $filename)) $url = 'stylesheets';
+		else if(preg_match('/js/', $filename)) $url = 'javascript';
+		else $url = 'templates';
+		// delete file
+		File::delete(base64_decode($file));
+		// set notification
+		$p->setMsg($p::$lang['Success_remove']);
+		// redirect
+		Request::redirect($p->Url().'/'.$url);
+	}
 });
 
 
@@ -143,12 +143,12 @@ $p->route('/action/themes/removefile/(:any)/(:any)', function($id,$file) use($p)
 * @desc   Remove file on media ( :any use base64_encode remenber decode file)
 */
 $p->route('/action/backups/removefile/(:any)/(:any)', function($id,$file) use($p){
-  if(Session::exists('user')){
-	  // delete file
-	  File::delete(base64_decode($file));
-	  // set notification
-	  $p->setMsg($p::$lang['Success_remove']);
-	  // redirect
-	  Request::redirect($p->Url().'/backups');
-  }
+	if(Session::exists('user')){
+		// delete file
+		File::delete(base64_decode($file));
+		// set notification
+		$p->setMsg($p::$lang['Success_remove']);
+		// redirect
+		Request::redirect($p->Url().'/backups');
+	}
 });

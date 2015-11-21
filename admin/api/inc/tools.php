@@ -23,6 +23,6 @@ $p->route('/action/clearCache/(:any)/', function($token) use($p){
 			die('Crsf detect !');
 		}
 	}else{
-		Request::redirect($p::$site['url'].'/'.$p::$site['backend_folder']);
+		Request::redirect($p::$site['site_url'].'/'.$p::$site['backend_folder']);
 	}
 });

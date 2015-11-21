@@ -38,23 +38,24 @@
 							<h2>Permissions Check</h2>
 							<p>Folders should have at least 755 and files 644 permissions.</p>
 							<?php clearstatcache(); ?>
-							storage - <?php echo substr(sprintf('%o', fileperms(STORAGE)), -4); ?><br>
-							storage/blocks - <?php echo substr(sprintf('%o', fileperms(BLOCKS)), -4); ?><br>
-							storage/pages - <?php echo substr(sprintf('%o', fileperms(PAGES)), -4); ?><br>
-							public - <?php echo substr(sprintf('%o', fileperms(PUBLICFOLDER)), -4); ?><br>
-							public/media - <?php echo substr(sprintf('%o', fileperms(MEDIA)), -4); ?><br>
-							public/uploads - <?php echo substr(sprintf('%o', fileperms(UPLOADS)), -4); ?><br>
-							config/site.yml - <?php echo substr(sprintf('%o', fileperms(SITE)), -4); ?><br>
+							<b>storage </b>- <?php echo substr(sprintf('%o', fileperms(STORAGE)), -4); ?><br>
+							<b>storage/blocks</b> - <?php echo substr(sprintf('%o', fileperms(BLOCKS)), -4); ?><br>
+							<b>storage/pages</b> - <?php echo substr(sprintf('%o', fileperms(PAGES)), -4); ?><br>
+							<b>public</b> - <?php echo substr(sprintf('%o', fileperms(PUBLICFOLDER)), -4); ?><br>
+							<b>public/media</b> - <?php echo substr(sprintf('%o', fileperms(MEDIA)), -4); ?><br>
+							<b>public/uploads</b> - <?php echo substr(sprintf('%o', fileperms(UPLOADS)), -4); ?><br>
+							<b>config/site.yml</b> - <?php echo substr(sprintf('%o', fileperms(SITE)), -4); ?><br>
+							<b>config/system.yml</b> - <?php echo substr(sprintf('%o', fileperms(SYSTEM)), -4); ?><br>
 							<hr>
 
 
 							<h2> Folder Size </h2>
 							<p>Estimated sizes of folders</p>
-							storage/pages - <?php echo $this->folderSize(PAGES);?><br>
-							storage/blocks - <?php echo $this->folderSize(BLOCKS);?><br>
-							public/media - <?php echo $this->folderSize(MEDIA);?><br>
-							public/uploads - <?php echo $this->folderSize(UPLOADS);?><br>
-							backups - <?php echo $this->folderSize(BACKUPS);?><br>
+							<b>storage/pages</b> - <?php echo $this->folderSize(PAGES);?><br>
+							<b>storage/blocks</b> - <?php echo $this->folderSize(BLOCKS);?><br>
+							<b>public/media</b> - <?php echo $this->folderSize(MEDIA);?><br>
+							<b>public/uploads</b> - <?php echo $this->folderSize(UPLOADS);?><br>
+							<b>backups</b> - <?php echo $this->folderSize(BACKUPS);?><br>
 							<hr>
 						<?php }; ?>
 					</div>

@@ -60,10 +60,10 @@ $p->route('/action/rename/(:any)/(:any)', function($token,$file) use($p){
 								<form class="form-inline" method="post">
 									<input type="hidden" name="token" value="'.Token::generate().'">
 									<div class="form-group">
-									<label>'.Panel::$lang['Rename_File'].' :<code>'.File::name(base64_decode($file)).'</code></label>
+										<label>'.Panel::$lang['Rename_File'].' :<code>'.File::name(base64_decode($file)).'</code></label>
 									</div>
 									<div class="form-group">
-									<input type="text" class="form-control" name="rename_file_name" value="'.File::name(base64_decode($file)).'" required>
+										<input type="text" class="form-control" name="rename_file_name" value="'.File::name(base64_decode($file)).'" required>
 									</div>
 									<input class="btn btn-primary" type="submit" name="rename" value="'.Panel::$lang['Rename_File'].'">
 									<a class="btn btn-danger" href="'.$p->url().'/'.$url.'">'.Panel::$lang['Cancel'].'</a>
@@ -133,10 +133,10 @@ $p->route('/action/uploads/rename/(:any)/(:any)', function($token,$file) use($p)
 								<form class="form-inline" method="post">
 									<input type="hidden" name="token" value="'.Token::generate().'">
 									<div class="form-group">
-									<label>'.Panel::$lang['Rename_File'].' :<code>'.File::name(base64_decode($file)).'</code></label>
+										<label>'.Panel::$lang['Rename_File'].' :<code>'.File::name(base64_decode($file)).'</code></label>
 									</div>
 									<div class="form-group">
-									<input type="text" class="form-control" name="rename_file_name" value="'.File::name(base64_decode($file)).'" required>
+										<input type="text" class="form-control" name="rename_file_name" value="'.File::name(base64_decode($file)).'" required>
 									</div>
 									<input class="btn btn-primary" type="submit" name="rename" value="'.Panel::$lang['Rename_File'].'">
 									<a class="btn btn-danger" href="'.$p->url().'/uploads">'.Panel::$lang['Cancel'].'</a>
@@ -221,10 +221,10 @@ $p->route('/action/themes/rename/(:any)/(:any)', function($token,$file) use($p){
 								<form class="form-inline" method="post">
 									<input type="hidden" name="token" value="'.Token::generate().'">
 									<div class="form-group">
-									<label>'.Panel::$lang['Rename_File'].' :<code>'.File::name(base64_decode($file)).'</code></label>
+										<label>'.Panel::$lang['Rename_File'].' :<code>'.File::name(base64_decode($file)).'</code></label>
 									</div>
 									<div class="form-group">
-									<input type="text" class="form-control" name="rename_file_name" value="'.File::name(base64_decode($file)).'" required>
+										<input type="text" class="form-control" name="rename_file_name" value="'.File::name(base64_decode($file)).'" required>
 									</div>
 									<input class="btn btn-primary" type="submit" name="rename" value="'.Panel::$lang['Rename_File'].'">
 									<a class="btn btn-danger" href="'.$p->url().'/'.$url.'">'.Panel::$lang['Cancel'].'</a>
@@ -302,10 +302,10 @@ $p->route('/action/backups/rename/(:any)/(:any)', function($token,$file) use($p)
 								<form class="form-inline" method="post">
 									<input type="hidden" name="token" value="'.Token::generate().'">
 									<div class="form-group">
-									<label>'.Panel::$lang['Rename_File'].' :<code>'.File::name(base64_decode($file)).'</code></label>
+										<label>'.Panel::$lang['Rename_File'].' :<code>'.File::name(base64_decode($file)).'</code></label>
 									</div>
 									<div class="form-group">
-									<input type="text" class="form-control" name="rename_file_name" value="'.File::name(base64_decode($file)).'" required>
+										<input type="text" class="form-control" name="rename_file_name" value="'.File::name(base64_decode($file)).'" required>
 									</div>
 									<input class="btn btn-primary" type="submit" name="rename" value="'.Panel::$lang['Rename_File'].'">
 									<a class="btn btn-danger" href="'.$p->url().'/backups">'.Panel::$lang['Cancel'].'</a>
