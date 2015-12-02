@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="description" content="Morfy-admin-panel : Backend for Morfy CMS">
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Morfy-admin-panel</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/nakome/morfy-admin-panel">View on GitHub</a>
+
+          <h1 id="project_title">Morfy-admin-panel</h1>
+          <h2 id="project_tagline">Backend for Morfy CMS</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/nakome/morfy-admin-panel/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/nakome/morfy-admin-panel/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h1>
+<a id="morfy-panel-220" class="anchor" href="#morfy-panel-220" aria-hidden="true"><span class="octicon octicon-link"></span></a>Morfy-Panel 2.2.0</h1>
+
+<p>Backend for <a href="http://morfy.org">Morfy CMS</a></p>
+
+<p><a href="https://gitter.im/morfy-cms/morfy?utm_source=badge&amp;utm_medium=badge&amp;utm_campaign=pr-badge&amp;utm_content=badge"><img src="https://badges.gitter.im/Join%20Chat.svg" alt="Join the chat at https://gitter.im/morfy-cms/morfy"></a></p>
+
+<h2>
+<a id="requirements" class="anchor" href="#requirements" aria-hidden="true"><span class="octicon octicon-link"></span></a>Requirements</h2>
+
+<p>Operation system: Unix, Linux, Windows, Mac OS<br>
+Middleware: PHP 5.5 or higher with PHP's <a href="http://php.net/mbstring">Multibyte String module</a><br>
+Webserver: Apache with <a href="http://httpd.apache.org/docs/current/mod/mod_rewrite.html">Mod Rewrite</a>  </p>
+
+<hr>
+
+<h2>
+<a id="screenshots" class="anchor" href="#screenshots" aria-hidden="true"><span class="octicon octicon-link"></span></a>Screenshots</h2>
+
+<h3>
+<a id="dashboard" class="anchor" href="#dashboard" aria-hidden="true"><span class="octicon octicon-link"></span></a>Dashboard</h3>
+
+<p><img src="screenshots/dashboard.jpg" alt="Dashboard"></p>
+
+<h3>
+<a id="edit-pages" class="anchor" href="#edit-pages" aria-hidden="true"><span class="octicon octicon-link"></span></a>Edit pages</h3>
+
+<p><img src="screenshots/edit.jpg" alt="Edit"></p>
+
+<h3>
+<a id="edit-themes" class="anchor" href="#edit-themes" aria-hidden="true"><span class="octicon octicon-link"></span></a>Edit Themes</h3>
+
+<p><img src="screenshots/edit2.jpg" alt="Edit"></p>
+
+<h3>
+<a id="pages-section" class="anchor" href="#pages-section" aria-hidden="true"><span class="octicon octicon-link"></span></a>Pages section</h3>
+
+<p><img src="screenshots/pages.jpg" alt="Pages"></p>
+
+<hr>
+
+<h2>
+<a id="instructions" class="anchor" href="#instructions" aria-hidden="true"><span class="octicon octicon-link"></span></a>Instructions</h2>
+
+<p>Copy admin folder in root of website</p>
+
+<p>Go to config/site.yml and <strong>edit:</strong></p>
+
+<pre><code>author:
+  email: 'demo@gmail.com'
+
+
+
+# admin folder
+backend_folder: 'admin'
+# password
+backend_password: 'demo'
+# Language  en,es,gr,ru 
+backend_language: 'en'
+# pagination pages/blocks templates etc..
+backend_pagination_pages: 6
+# pagination uploads
+backend_pagination_uploads: 6
+# pagination all media 
+backend_pagination_media_all: 3
+# pagination single item
+backend_pagination_media: 16
+# admin charset
+backend_charset: UTF-8
+# root url
+site_url: 'http://localhost'
+</code></pre>
+
+<p><strong>Note:</strong></p>
+
+<p>if you like ,you can change folder name of admin.</p>
+
+<ul>
+<li>rename $backend var in admin/index.php</li>
+<li>rename backend_folder in site.yml</li>
+<li>Go to url /admin of your admin folder name and login</li>
+</ul>
+
+<p><strong>Thats it !</strong></p>
+
+<hr>
+
+<h2>
+<a id="json-structure-of-media-elements" class="anchor" href="#json-structure-of-media-elements" aria-hidden="true"><span class="octicon octicon-link"></span></a>Json structure of media elements</h2>
+
+<pre><code>}
+    "1447007935": {
+        "id": 1447007935,
+        "title": "The blue Worlds",
+        "desc": "Many pics of blue worlds by uspslash.com",
+        "thumb": "/public/media/album_thumbs/album_1447007935.jpg",
+        "images": "/public/media/albums/album_1447007935",
+        "tag": "blue",
+        "width": "800",
+        "height": "500"
+    }
+}
+</code></pre>
+
+<p>You can use media plugin to show images:</p>
+
+<p>Copy media folder in plugins folder
+Enable on site.yml</p>
+
+<pre><code>plugins
+    media
+</code></pre>
+
+<hr>
+
+<h1>
+<a id="morfy-media-plugin" class="anchor" href="#morfy-media-plugin" aria-hidden="true"><span class="octicon octicon-link"></span></a>Morfy Media Plugin</h1>
+
+<p>Extends Media section in frontend of Morfy Panel</p>
+
+<h2>
+<a id="documentation" class="anchor" href="#documentation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Documentation</h2>
+
+<p>Create a media.md file on storage/pages folder with template media.tpl like this:</p>
+
+<pre><code>    ---
+    title: Media example
+    description: Media items for gallery or portfolio
+    template: media
+    ---
+</code></pre>
+
+<p>Create a media.tpl file on themes/default-theme folder like this:</p>
+
+<p>File <strong>media.tpl</strong></p>
+
+<pre><code>    {extends 'partials/base.tpl'}
+    {block 'content'}
+        &lt;div class="container"&gt;
+            {Action::run('Media')}
+        &lt;/div&gt;
+    {/block}
+</code></pre>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Morfy-admin-panel maintained by <a href="https://github.com/nakome">nakome</a></p>
+        <p>Published with <a href="https://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
