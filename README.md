@@ -16,9 +16,9 @@ Webserver: Apache with [Mod Rewrite](http://httpd.apache.org/docs/current/mod/mo
 	
 ### Dashboard
 ![Dashboard](screenshots/dashboard.jpg)
-### Edit
+### Edit pages
 ![Edit](screenshots/edit.jpg)
-### Full screen edit
+### Edit Themes 
 ![Edit](screenshots/edit2.jpg)
 ### Pages section
 ![Pages](screenshots/pages.jpg)
