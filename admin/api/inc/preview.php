@@ -79,7 +79,7 @@ $p->route('/action/uploads/preview/(:any)', function($file) use($p){
 				$template = '
 					<div class="col-lg-6">
 						<div class="thumbnail">
-							<img class="img-responsive" src="'.$p::$site['site_url'].'/public/uploads/'.$link.'"/>
+							<img class="expand img-responsive" src="'.$p::$site['site_url'].'/public/uploads/'.$link.'"/>
 						</div>
 					</div>
 					<div class="col-lg-6">

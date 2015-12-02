@@ -446,7 +446,7 @@ $p->route(array('/media/uploads/(:num)','/media/uploads/(:num)/(:num)'),function
 							href="'.$p->Url().'/action/media/uploads/removefile/'.$id.'/'.base64_encode($media).'">
 								<i class="fa fa-trash-o"></i>
 							</a>
-							<img src="'.$image.'" alt="'.File::name($media).'"/>
+							<img class="expand" src="'.$image.'" alt="'.File::name($media).'"/>
 						</div>';
 			}
 
@@ -468,7 +468,7 @@ $p->route(array('/media/uploads/(:num)','/media/uploads/(:num)/(:num)'),function
 		}else{
 			$templateAll .= '
 							<div class="row">
-								<div class="col-lg-4 col-sm-6">
+								<div class="col-lg-6 col-sm-6">
 										<form class="form" method="post"  enctype="multipart/form-data">
 											<input type="hidden" name="token" value="'.Token::generate().'"/>
 											<div class="form-group">
@@ -492,9 +492,9 @@ $p->route(array('/media/uploads/(:num)','/media/uploads/(:num)/(:num)'),function
 										</form>
 										'.$error.'
 									</div>
-									<div class="col-lg-4 col-sm-6">
+									<div class="col-lg-6 col-sm-6">
 										<div class="thumbnail">
-											<img  id="media-display" class="thumbnail img-responsive" src="'.$p->Assets('nomediapreview.jpg','img').'"/>
+											<img  id="media-display" class="img-responsive" src="'.$p->Assets('nomediapreview.jpg','img').'"/>
 										</div>
 									</div>
 								</div>
@@ -595,7 +595,7 @@ $p->route('/action/themes/newfile/(:any)/(:any)', function($token,$file) use($p)
 								</div>
 								<div class="row">
 									<div class="col-lg-12">
-										<textarea class="form-control editor" rows="20" name="newFile">'.$textContent.'</textarea>
+										<textarea class="form-control theme-editor" rows="20" name="newFile">'.$textContent.'</textarea>
 										<br>
 										<input class="btn btn-primary" type="submit" name="saveFile" value="'.Panel::$lang['Save_file'].'">
 										<a class="btn btn-danger" href="'.$p->url().'/'.$url.'">'.Panel::$lang['Cancel'].'</a>

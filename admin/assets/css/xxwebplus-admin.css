@@ -24,7 +24,6 @@ body {
 
 #page-wrapper {
     width: 100%;
-    height: calc(100% - 121px);
     padding: 0;
     background-color: #fff;
     /*margin-top: 60px;*/
@@ -64,6 +63,11 @@ body {
     color: #fff;
     border-left: 7px solid #2a9fd6;
     background-color: #080808;
+}
+
+.navbar-inverse .navbar-nav>li>a {
+    color: #777;
+    border-bottom: 1px solid #080808;
 }
 
 .top-nav {
@@ -148,7 +152,7 @@ ul.alert-dropdown {
         padding-bottom: 40px;
         border: none;
         border-radius: 0;
-        background-color: #222;
+        background-color: #151414;
     }
     .side-nav > li > a {
         width: 225px;
@@ -173,7 +177,10 @@ ul.alert-dropdown {
     display: block;
     padding: 10px 15px 10px 38px;
     text-decoration: none;
-    color: #999;
+    color: #FFF;
+    background: #080808;
+    border-bottom: 1px solid #000;
+    border-left: 7px solid #f0ad4e;
 }
 
 .side-nav > li > ul > li > a:hover {
@@ -287,11 +294,18 @@ body {
 
 #wrapper {
     height: auto;
-    min-height: calc(100% - 60px);
+    min-height: calc(100vh - 5em);
     /* Negative indent footer by its height */
     margin: 0 auto;
     /* Pad bottom by footer height */
-    /*padding: 0 0 60px;*/
+    padding: 0 0 0 225px;
+}
+
+@media(max-width:767px) {
+    #wrapper {
+        padding: 0;
+        min-height: calc(100vh - 2em);
+    }
 }
 
 
@@ -304,6 +318,7 @@ body {
     margin-top: 0;
     animation: test;
     background-color: #f5f5f5;
+    border-top: 1px solid #ddd;
 }
 
 
@@ -408,6 +423,7 @@ code {
     width: calc(100%/4 - 1em);
     height: 12em;
     margin: .5em .2em;
+    border: 1px solid #ddd;
 }
 
 .thumb:first-child {
@@ -431,6 +447,11 @@ code {
 .thumb a:hover,
 .thumb a:focus {
     background: #c0392b;
+}
+
+.thumb img {
+    width: 100%;
+    display: block;
 }
 
 .thumb-anim {
@@ -733,6 +754,12 @@ input[type='color'],
     background-color: #fff;
 }
 
+@media(max-width:767px) {
+    input[type="search"] {
+        margin-top: 1em;
+    }
+}
+
 select:focus,
 textarea:focus,
 input[type='text']:focus,
@@ -898,4 +925,240 @@ th {
     background: #222 !important;
     color: #ccc !important;
     border-color: #151515 !important;
+}
+
+
+/*
+  THEME
+*/
+
+
+/* default */
+
+.box pre {
+    color: #f8a506;
+}
+
+
+/* e.g. var, function */
+
+.cm-keyword {
+    color: #ff0fab;
+}
+
+
+/* e.g. #id */
+
+.cm-atom {
+    color: #9f9fcf;
+}
+
+
+/* e.g. 20 */
+
+.cm-number {
+    color: #2ccf78;
+}
+
+
+/* e.g. px, em */
+
+.cm-unit {
+    color: #0ef7f0;
+}
+
+
+/* e.g. @include, [this] */
+
+.cm-def {
+    color: #de4060;
+}
+
+
+/* e.g. $, i */
+
+.cm-variable {
+    color: #7f96db;
+}
+
+
+/* e.g. for key in [this], Markdown li */
+
+.cm-variable-2 {
+    color: #ca9;
+}
+
+
+/* e.g. getElementbyId, CSS properties */
+
+.cm-property {
+    color: #3eb8f0;
+}
+
+
+/* e.g. CoffeeScript ->, CSS colons */
+
+.cm-operator {
+    color: #e6d8e6;
+}
+
+
+/* e.g. // comments */
+
+.cm-comment {
+    color: #757575;
+}
+
+
+/* e.g. "string" */
+
+.cm-string {
+    color: #abb337;
+}
+
+
+/* e.g. some CSS values */
+
+.cm-string-2 {
+    color: #f0ea73;
+}
+
+
+/* e.g. @font-face */
+
+.cm-meta {
+    color: #829990;
+}
+
+
+/*  */
+
+.cm-header {
+    color: #ffffff;
+}
+
+
+/* e.g. HTML elements */
+
+.cm-tag {
+    color: #3eb8f0;
+}
+
+
+/* e.g. class="" id="" */
+
+.cm-attribute {
+    color: #d98092;
+}
+
+
+/* not sure if used */
+
+.cm-strong {
+    color: #ddca7e;
+}
+
+
+/* not sure if used */
+
+.cm-em {
+    color: #ddca7e;
+}
+
+
+/* e.g. .box */
+
+.cm-qualifier {
+    color: #9fb85a;
+}
+
+
+/* not sure if used */
+
+.cm-builtin {
+    color: #ddca7e;
+}
+
+
+/* HTML SPECIFIC */
+
+
+/* e.g. markdown blockquote */
+
+.box-html .cm-atom {
+    color: #8d8cb3;
+}
+
+
+/* CSS SPECIFIC */
+
+
+/* e.g. h1, h2 */
+
+.box-css .cm-tag,
+.box-css .cm-qualifier,
+.box-css .cm-atom {
+    color: #84ed5a;
+}
+
+.CodeMirror-linenumber {
+    color: #5c595c;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.box {
+    background: #1d1f20;
+    background: -webkit-linear-gradient(45deg, #1d1f20, #2f3031) !important;
+    background: -moz-linear-gradient(45deg, #1d1f20, #2f3031) !important;
+    background: -o-linear-gradient(45deg, #1d1f20, #2f3031) !important;
+    background: linear-gradient(45deg, #1d1f20, #2f3031) !important;
+}
+
+.expand {
+    cursor: pointer;
+}
+
+.img-full-container {
+    position: fixed;
+    z-index: 999997;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+    display: none;
+}
+
+.img-full-container img {
+    max-width: 100%;
+    max-height: 100%;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    overflow: auto;
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 999998;
+}
+
+.img-full-container .close {
+    cursor: pointer;
+    position: absolute;
+    bottom: 0;
+    width: 350px;
+    text-align: center;
+    color: #fff;
+    font-size: 18px;
+    margin-left: -175px;
+    left: 50%;
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 10px 0;
+    z-index: 999999;
 }

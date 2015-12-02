@@ -1,8 +1,16 @@
 <?php defined('PANEL_ACCESS') or die('No direct script access.'); ?>
 
+	<div class="img-full-container">
+		<img src="">
+		<div class="close">Click To Close</div>
+	</div>
+
 	<div id="footer">
 		<div class="container">
-			<p class="text-muted pull-right">Development by <a href="http://monchovarela.es/">Nakome</a> | Design by <a href="http://www.xxwebplus.eu/">xxwebplus</a></p>
+			<p class="text-muted text-right">
+				Development by <a href="http://monchovarela.es/">Nakome</a> | 
+				Design by <a href="http://www.xxwebplus.eu/">xxwebplus 
+				<span class="label label-danger hidden-xs"> <b>Version: </b><?php echo $this->version; ?></span></a></p>
 		</div>
 	</div>
 
@@ -12,6 +20,9 @@
 	<script type="text/javascript" src="<?php echo $this->Assets('markdown.js','js');?>"></script>
 	<script type="text/javascript" src="<?php echo $this->Assets('to-markdown.js','js');?>"></script>
 	<script type="text/javascript" src="<?php echo $this->Assets('bootstrap-markdown.js','js');?>"></script>
+	<script type="text/javascript" src="<?php echo $this->Assets('codemirror.js','js');?>"></script>
+	<script type="text/javascript" src="<?php echo $this->Assets('codemirror-modes.js','js');?>"></script>
+
 	<!-- custom javascript -->
 	<script type="text/javascript" src="<?php echo $this->Assets('app.js','js');?>"></script>
 

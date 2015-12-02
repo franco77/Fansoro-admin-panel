@@ -6,8 +6,6 @@ Success_rename:     'The archive has been Rename'
 
 # login
 Password_Error: 'Password Error'
-
-
 # sections
 Dashboard:    'Dashboard'
 Pages:        'Pages'
@@ -18,8 +16,6 @@ Themes:       'Themes'
 Plugins:      'Plugins'
 Settings:     'Settings'
 Support:      'Support'
-
-
 # pages
 Directory:      'Directory'
 Name:           'Name'
@@ -35,52 +31,35 @@ Remove_File:    'Remove File'
 Remove_Folder:  'Remove Folder'
 Search:  		'Search'
 back: 			'Back'
-
-
 # info index for rename and delete
 exencial_file: 'Precaution!,This is a exencial file'
-
-
 # edit file
 Update:  'Update'
-
-
 # new file
 Save_file:  'Save file'
-
 # new folder
 Folder_Already_Exists: 	'Folder Already exists!'
 Folder_Name_Required: 	'Folder name is required!'
-
-
 # rename
 File_Name_Exists: 		'File Name Already exists !'
 File_Name_Required: 	'File Name is Required'
-
-
 # delete
 Are_you_sure_to_delete: 		'Are you sure to delete'
 Are_you_sure_to_delete_folder: 	'Are you sure to delete folder'
 Remove: 						'Remove'
 Cancel: 						'Cancel'
-
-
 #uploads
 back_to_uploads: 			'Back to Uploads'
 no_preview_for_this_file: 	'No preview for this file'
 Upload_file: 				'Upload file'
 Upload: 					'Upload'
 Size: 						'Size'
-
-
 #media files
 Media:						'Media'
 All_media: 					'All media'
 Create_media: 				'Create media'
 Upload_media: 				'Upload images'
 Upload_empty: 				'The folder is empty'
-
-
 # media uploads
 Uploads_Media: 				'Uploads Media'
 Templates: 					'Templates'
@@ -100,20 +79,14 @@ Systemyml: 'System'
 # backups
 Backups: 					'Backups'
 New_Backup: 				'New Backup'
-
-
 #diagnostic
 Diagnostic: 				'Diagnostic'
 
 # 404 not found
 Error_page: 				'The request page not found in Morfy Panel'
-
-
 # cache
 Clear_cache: 'Clear cache'
 Success_cache: 'Your Cache has been clear'
-
-
 # modal and imports
 Import: 'Import'
 Import_blog_files: 'Import blog files'

@@ -52,50 +52,34 @@ back_to_uploads:	'Back to Uploads'
 no_preview_for_this_file:	'Χωρίς προεπισκόπηση για αυτό το αρχείο'
 Upload_file:	'Ανεβάστε αρχείο'
 Upload:	'Ανεβάστε'
-Size: 						'Size'
-
-
+Size:	'Size'
 #media files
-Media:						'Media'
-All_media: 					'All media'
-Create_media: 				'Create media'
-Upload_media: 				'Upload images'
-Upload_empty: 				'The folder is empty'
-
-
+Media:	'Media'
+All_media:	'All media'
+Create_media:	'Create media'
+Upload_media:	'Ανεβάστε τις εικόνες'
+Upload_empty:	'Ο φάκελος είναι άδειο'
 # media uploads
-Uploads_Media: 				'Uploads Media'
-Templates: 					'Templates'
-Stylesheets: 				'Stylesheets'
-Javascript: 				'Javascript'
-
+Uploads_Media:	'Uploads Media'
+Templates:	'Templates'
+Stylesheets:	'Stylesheets'
+Javascript:	'Javascript'
 # Themes
-Zip_Public: 	'Zip Public'
+Zip_Public:	'Zip Public'
 Zip_Storage: 'Zip Storage'
-Zip_Themes: 	'Zip Themes'
-
+Zip_Themes:	'Zip Themes'
 #config
 Config: 'Configuration'
-Siteyml: 'Site'
-Systemyml: 'System'
-
 # backups
-Backups: 					'Backups'
-New_Backup: 				'New Backup'
-
-
+Backups:	'Backups'
+New_Backup:	'New Backup'
 #diagnostic
-Diagnostic: 				'Diagnostic'
-
+Diagnostic:	'Diagnostic'
 # 404 not found
-Error_page: 				'The request page not found in Morfy Panel'
-
-
+Error_page:	'The request page not found in Morfy Panel'
 # cache
 Clear_cache: 'Clear cache'
 Success_cache: 'Your Cache has been clear'
-
-
 # modal and imports
 Import: 'Import'
 Import_blog_files: 'Import blog files'

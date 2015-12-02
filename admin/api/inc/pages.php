@@ -421,7 +421,7 @@ $p->route(array('/media','/media/(:num)'),function($offset = 1) use($p){
 					$templateAll .= '
 					<div class="row">
 						<div class="col-lg-6">
-							<img class="img-thumbnail" src="'.Panel::$site['site_url'].$media['thumb'].'?timestamp=1357571065"/>
+							<img class="expand img-thumbnail" src="'.Panel::$site['site_url'].$media['thumb'].'?timestamp=1357571065"/>
 						</div>
 						<div class="col-lg-6">
 						<ul class="list-group">

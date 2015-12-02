@@ -15,13 +15,13 @@ Webserver: Apache with [Mod Rewrite](http://httpd.apache.org/docs/current/mod/mo
 ## Screenshots
 	
 ### Dashboard
-![Dashboard](screenshots/dashboard.png)
+![Dashboard](screenshots/dashboard.jpg)
 ### Edit
-![Edit](screenshots/edit.png)
+![Edit](screenshots/edit.jpg)
 ### Full screen edit
-![Edit](screenshots/edit2.png)
+![Edit](screenshots/edit2.jpg)
 ### Pages section
-![Pages](screenshots/pages.png)
+![Pages](screenshots/pages.jpg)
 
 ---
 

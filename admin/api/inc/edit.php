@@ -255,7 +255,7 @@ $p->route('/action/themes/edit/(:any)/(:any)', function($token,$file) use($p){
 								<div class="row">
 									<div class="col-lg-12">
 										<div class="form-group">
-											<textarea class="editor form-control" rows="20" name="updateFile">'.File::getContent($path).'</textarea>
+											<textarea class="theme-editor form-control" rows="20" name="updateFile">'.File::getContent($path).'</textarea>
 										</div>
 										<input class="btn btn-primary" type="submit" name="saveFile" value="'.Panel::$lang['Update'].'">
 										<a class="btn btn-danger" role="button" href="'.$p->url().'/'.$url.'">'.Panel::$lang['Cancel'].'</a>

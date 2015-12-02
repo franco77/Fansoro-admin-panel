@@ -55,9 +55,16 @@ img {
 .cover{
 	height:calc(100% - 20px);
 }
-@media(max-width:768px) {
+
+@media  (min-width:320px)  and (orientation:landscape) {
 	.cover{
-		height:auto;
+		height: auto;
+	}
+} 
+
+@media  (min-width:768px)  and (orientation:landscape) {
+	.cover{
+		height:calc(100% - 20px);
 	}
 }
 </style>
