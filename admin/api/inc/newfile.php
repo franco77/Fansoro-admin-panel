@@ -30,7 +30,7 @@ template: index
 ';
 			}else if(preg_match('/blocks/i',$path)){
 				$url = 'blocks';
-				$textContent = 'Write here your text block...';
+				$textContent = "\n#Write here your text block";
 			}
 
 			// get directory without base url
@@ -43,12 +43,11 @@ template: index
 			if(Request::post('saveFile')){
 				if(Request::post('token')){
 					$filename = $p->SeoLink(Request::post('filename'));
-					$content = Request::post('newfile');
 					if(File::exists(STORAGE.'/'.$path.'/'.$filename.'.md')){
 						$error = '<span class="label label-danger">'.Panel::$lang['File_Name_Exists'].'</span>';
 					}else{
 						// save content
-						File::setContent(STORAGE.'/'.$path.'/'.$filename.'.md',$content);
+						File::setContent(STORAGE.'/'.$path.'/'.$filename.'.md',Request::post('content'));
 						// set notification
 						$p->setMsg($p::$lang['Success_save']);
 						// redirect
@@ -74,7 +73,7 @@ template: index
 								</div>
 								<div class="row">
 									<div class="col-lg-12">
-										<textarea class="form-control" data-provide="markdown"  rows="20" name="newfile">'.$textContent.'</textarea>
+										<textarea class="form-control" data-provide="markdown"  rows="20" name="content">'.$textContent.'</textarea>
 										<br>
 										<input class="btn btn-primary" type="submit" name="saveFile" value="'.Panel::$lang['Save_file'].'">
 										<a class="btn btn-danger" href="'.$p->url().'/'.$url.'">
@@ -564,12 +563,11 @@ $p->route('/action/themes/newfile/(:any)/(:any)', function($token,$file) use($p)
 			if(Request::post('saveFile')){
 				if(Request::post('token')){
 					$filename = $p->SeoLink(Request::post('filename'));
-					$content = Request::post('newfile');
 					if(File::exists(THEMES.'/'.$path.'/'.$filename.$ext)){
 						$error = '<span class="label label-danger">'.Panel::$lang['File_Name_Exists'].'</span>';
 					}else{
 						// save content
-						File::setContent(THEMES.'/'.$path.'/'.$filename.$ext,$content);
+						File::setContent(THEMES.'/'.$path.'/'.$filename.$ext,Request::post('content'));
 						// set notification
 						$p->setMsg($p::$lang['Success_save']);
 						// redirect
@@ -595,7 +593,7 @@ $p->route('/action/themes/newfile/(:any)/(:any)', function($token,$file) use($p)
 								</div>
 								<div class="row">
 									<div class="col-lg-12">
-										<textarea class="form-control theme-editor" rows="20" name="newFile">'.$textContent.'</textarea>
+										<textarea class="form-control theme-editor" rows="20" name="content">'.$textContent.'</textarea>
 										<br>
 										<input class="btn btn-primary" type="submit" name="saveFile" value="'.Panel::$lang['Save_file'].'">
 										<a class="btn btn-danger" href="'.$p->url().'/'.$url.'">'.Panel::$lang['Cancel'].'</a>

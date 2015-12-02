@@ -18,11 +18,8 @@ $p->route('/action/edit/(:any)/(:any)', function($token,$file) use($p){
 
 			// search pages or blocks in url
 			$url = '';
-			if(preg_match('/pages/i',$path)){
-				$url = 'pages';
-			}else if(preg_match('/blocks/i',$path)){
-				$url = 'blocks';
-			}
+			if(preg_match('/pages/i',$path)) $url = 'pages';
+			else if(preg_match('/blocks/i',$path)) $url = 'blocks';
 
 			// update file
 			if(Request::post('saveFile')){
@@ -51,9 +48,7 @@ $p->route('/action/edit/(:any)/(:any)', function($token,$file) use($p){
 								</div>
 								<div class="row">
 									<div class="col-lg-12">
-										<textarea class="form-control" data-provide="markdown" rows="20" name="updateFile">
-											'.File::getContent($path).'
-										</textarea>
+										<textarea class="form-control" data-provide="markdown" rows="20" name="updateFile">'.File::getContent($path).'</textarea>
 										<br>
 										<input class="btn btn-primary" type="submit" name="saveFile" value="'.Panel::$lang['Update'].'">
 										<a class="btn btn-danger" role="button" href="'.$p->url().'/'.$url.'">'.Panel::$lang['Cancel'].'</a>

@@ -125,8 +125,8 @@ $p->route('/action/themes/removefile/(:any)/(:any)', function($id,$file) use($p)
 	if(Session::exists('user')){
 		// function to redirect
 		$url = '';
-		if(preg_match('/css/', $filename)) $url = 'stylesheets';
-		else if(preg_match('/js/', $filename)) $url = 'javascript';
+		if(preg_match('/css/i', base64_decode($file))) $url = 'stylesheets';
+		else if(preg_match('/js/i', base64_decode($file))) $url = 'javascript';
 		else $url = 'templates';
 		// delete file
 		File::delete(base64_decode($file));
