@@ -86,7 +86,7 @@ if you like ,you can change folder name of admin.
 You can use media plugin to show images:
 
 Copy media folder in plugins folder
-Enable on site.yml
+Enable on system.yml
 
 	plugins
 		media
