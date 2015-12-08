@@ -1,76 +1,100 @@
 <?php $this->partial('head',array()); ?>
 <?php $this->partial('navigation',array()); ?>
-	<div id="wrapper">
-		<div id="page-wrapper">
+    <div id="wrapper">
+        <div id="page-wrapper">
+            <div class="container-fluid">
+                <!-- Page Heading -->
+                <div class="row mt60">
+                    <div class="col-lg-12">
+                    </div>
+                </div>
+                <!-- /.row -->
+                <div class="row">
+                    <div class="col-lg-12">
+                        <?php if(Session::exists('user')){ ?>
+                            <h2>System Requirements</h2>
+                            <p>Basic system requirements are an apache server with PHP 5 installed.</p>
+                            <?php
+                                function check($name) {
+                                    $setting = (ini_get($name));
+                                    $setting = ($setting==1 || $setting=='On') ? 'On' : 'Off';
+                                    return $setting;
+                                }
+                            ?>
 
-			<div class="container-fluid">
-
-				<!-- Page Heading -->
-				<div class="row mt60">
-					<div class="col-lg-12">
-					
-					</div>
-				</div>
-				<!-- /.row -->
-
-				<div class="row">
-					<div class="col-lg-12">
-						<?php if(Session::exists('user')){ ?>
-
-							<h2>System Requirements</h2>
-							<p>Basic system requirements are an apache server with PHP 5 installed.</p>
-							<?php
-								function check($name) {
-									$setting = (ini_get($name));
-									$setting = ($setting==1 || $setting=='On') ? 'On' : 'Off';
-									return $setting;
-								}
-							?>
-							<p><b>Server Type:</b> <?php print $_SERVER['SERVER_SOFTWARE']; ?><br>
-							<b>Morfy Panel Version:</b> <?php print $this->version;?><br>
-							<b>PHP Version:</b> <?php print phpversion()?><br>
-							<b>File Uploads:</b> <?php print check('file_uploads'); ?><br>
-							<b>Safe Mode:</b> <?php print check('safe_mode'); ?><br>
-							<b>Zip Extension:</b>
-							<?php if (extension_loaded('zip')) echo "On";else echo "Off";?></p>
-							<hr>
-
-							<h2>Permissions Check</h2>
-							<p>Folders should have at least 755 and files 644 permissions.</p>
-							<?php clearstatcache(); ?>
-							<b>storage </b>- <?php echo substr(sprintf('%o', fileperms(STORAGE)), -4); ?><br>
-							<b>storage/blocks</b> - <?php echo substr(sprintf('%o', fileperms(BLOCKS)), -4); ?><br>
-							<b>storage/pages</b> - <?php echo substr(sprintf('%o', fileperms(PAGES)), -4); ?><br>
-							<b>public</b> - <?php echo substr(sprintf('%o', fileperms(PUBLICFOLDER)), -4); ?><br>
-							<b>public/media</b> - <?php echo substr(sprintf('%o', fileperms(MEDIA)), -4); ?><br>
-							<b>public/uploads</b> - <?php echo substr(sprintf('%o', fileperms(UPLOADS)), -4); ?><br>
-							<b>config/site.yml</b> - <?php echo substr(sprintf('%o', fileperms(SITE)), -4); ?><br>
-							<b>config/system.yml</b> - <?php echo substr(sprintf('%o', fileperms(SYSTEM)), -4); ?><br>
-							<hr>
-
-
-							<h2> Folder Size </h2>
-							<p>Estimated sizes of folders</p>
-							<b>storage/pages</b> - <?php echo $this->folderSize(PAGES);?><br>
-							<b>storage/blocks</b> - <?php echo $this->folderSize(BLOCKS);?><br>
-							<b>public/media</b> - <?php echo $this->folderSize(MEDIA);?><br>
-							<b>public/uploads</b> - <?php echo $this->folderSize(UPLOADS);?><br>
-							<b>backups</b> - <?php echo $this->folderSize(BACKUPS);?><br>
-							<hr>
-						<?php }; ?>
-					</div>
-					
-				</div>
-				<!-- /.row -->
-
-			</div>
-			<!-- /.container-fluid mt60 -->
-
-		</div>
-		<!-- /#page-wrapper -->
-		
-	</div>
-	<!-- /#wrapper -->
+                            <p><b>Server Type:</b>
+                            <?php print $_SERVER['SERVER_SOFTWARE']; ?>
+                            <br>
+                            <b>Morfy Panel Version:</b>
+                            <?php print $this->version;?>
+                            <br>
+                            <b>PHP Version:</b>
+                            <?php print phpversion()?>
+                            <br>
+                            <b>File Uploads:</b>
+                            <?php print check('file_uploads'); ?>
+                            <br>
+                            <b>Safe Mode:</b>
+                            <?php print check('safe_mode'); ?>
+                            <br>
+                            <b>Zip Extension:</b>
+                            <?php if (extension_loaded('zip')) echo "On";else echo "Off";?>
+                            </p>
+                            <hr>
+                            <h2>Permissions Check</h2>
+                            <p>Folders should have at least 755 and files 644 permissions.</p>
+                            <?php clearstatcache(); ?>
+                            <b>storage </b>-
+                            <?php echo substr(sprintf('%o', fileperms(STORAGE)), -4); ?>
+                            <br>
+                            <b>storage/blocks</b> -
+                            <?php echo substr(sprintf('%o', fileperms(BLOCKS)), -4); ?>
+                            <br>
+                            <b>storage/pages</b> -
+                            <?php echo substr(sprintf('%o', fileperms(PAGES)), -4); ?>
+                            <br>
+                            <b>public</b> -
+                            <?php echo substr(sprintf('%o', fileperms(PUBLICFOLDER)), -4); ?>
+                            <br>
+                            <b>public/media</b> -
+                            <?php echo substr(sprintf('%o', fileperms(MEDIA)), -4); ?>
+                            <br>
+                            <b>public/uploads</b> -
+                            <?php echo substr(sprintf('%o', fileperms(UPLOADS)), -4); ?>
+                            <br>
+                            <b>config/site.yml</b> -
+                            <?php echo substr(sprintf('%o', fileperms(SITE)), -4); ?>
+                            <br>
+                            <b>config/system.yml</b> -
+                            <?php echo substr(sprintf('%o', fileperms(SYSTEM)), -4); ?>
+                            <br>
+                            <hr>
+                            <h2> Folder Size </h2>
+                            <p>Estimated sizes of folders</p>
+                            <b>storage/pages</b> -
+                            <?php echo $this->folderSize(PAGES);?>
+                            <br>
+                            <b>storage/blocks</b> -
+                            <?php echo $this->folderSize(BLOCKS);?>
+                            <br>
+                            <b>public/media</b> -
+                            <?php echo $this->folderSize(MEDIA);?>
+                            <br>
+                            <b>public/uploads</b> -
+                            <?php echo $this->folderSize(UPLOADS);?>
+                            <br>
+                            <b>backups</b> -
+                            <?php echo $this->folderSize(BACKUPS);?>
+                            <br>
+                            <hr>
+                            <?php }; ?>
+                    </div>
+                </div>
+                <!-- /.row -->
+            </div>
+            <!-- /.container-fluid mt60 -->
+        </div>
+        <!-- /#page-wrapper -->
+    </div>
+    <!-- /#wrapper -->
 <?php $this->partial('footer',array()); ?>
-
-

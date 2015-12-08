@@ -1,138 +1,145 @@
 <?php $this->partial('head',array()); ?>
-<?php $this->partial('navigation',array()); ?>
-<?php if(Session::exists('user')){ ?>
-	<div id="wrapper">
-		<div id="page-wrapper">
+    <?php $this->partial('navigation',array()); ?>
+        <?php if(Session::exists('user')){ ?>
+            <div id="wrapper">
+                <div id="page-wrapper">
+                    <div class="container-fluid">
+                        <!-- Page Heading -->
+                        <div class="row mt60">
+                            <div class="col-lg-6 col-md-6 col-sm-6 ">
+                                <?php echo $prev; ?>
+                                    <span class="btn btn-primary"><?php echo $offset;?> - <?php echo $total;?></span>
+                                    <?php echo $next; ?>
+                            </div>
+                            <div class="col-lg-6  col-md-6 col-sm-6 right">
+                                <form method="post" actiom="" class="form-inline" id="searchinthemes">
+                                    <div class="form-group">
+                                        <input type="search" class="form-control" id="searchthis" placeholder="Search..." required/>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <!-- /.row -->
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <h2 class="page-header">Templates</h2>
+                                <div class="table-responsive">
+                                    <table class="table table-bordered table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th>
+                                                    <?php echo Panel::$lang['Name'];?>
+                                                </th>
+                                                <th class="hidden-xs">
+                                                    <?php echo Panel::$lang['Directory'];?>
+                                                </th>
+                                                <th class="hidden-xs">
+                                                    <?php echo Panel::$lang['Extension'];?>
+                                                </th>
+                                                <th class="hidden-xs">
+                                                    <?php echo Panel::$lang['Size'];?>
+                                                </th>
+                                                <th style="text-align:right">
+                                                    <?php echo Panel::$lang['Options'];?>
+                                                </th>
+                                            </tr>
+                                            <?php
+                                            // generate token
+                                            $token = Token::generate();
 
-			<div class="container-fluid">
+                                            foreach ($content as $item) {
+                                                // size
+                                                $size = $this->fileSize($item);
+                                                // onloy show pages dir
+                                                $file = str_replace(THEMES, '', $item);
+                                                // get extension
+                                                $extension = File::ext($file);
+                                                // get name
+                                                $name = File::name($file);
+                                                // directory
+                                                $directory = str_replace($name.'.'.$extension, '', $file);
+                                                // remove backslah on templates only
+                                                if(preg_match('/assets/i', $directory)) $dir = $directory;
+                                                else $dir = str_replace('\\', '', $directory);
 
-				<!-- Page Heading -->
-				<div class="row mt60">
-					<div class="col-lg-6 col-md-6 col-sm-6 ">
-						<?php echo $prev; ?>
-						<span class="btn btn-primary"><?php echo $offset;?> - <?php echo $total;?></span>
-						<?php echo $next; ?>
-					</div>
-					<div class="col-lg-6  col-md-6 col-sm-6 right">
-						<form method="post" actiom="" class="form-inline" id="searchinthemes">
-							<div class="form-group">
-							  <input type="search" class="form-control" id="searchthis" placeholder="Search..." required/>
-							</div>
-						</form>
-					</div>
-				</div>
-				<!-- /.row -->
+                                                // show
+                                                echo '
+                                                  <tr>
+                                                    <td>'.$name.'.'.$extension.'</td>
+                                                    <td class="hidden-xs">'.$dir.'</td>
+                                                    <td class="hidden-xs">'.$extension.'</td>
+                                                    <td class="hidden-xs">'.$size.'</td>
+                                                    <td class="clearfix">
+                                                      <div class="btn-group pull-right">
+                                                        <a  class="btn btn-primary"
+                                                            href="'.$this->Url().'/action/themes/edit/'.$token.'/'.base64_encode($item).'"
+                                                            title="'.Panel::$lang['Edit_File'].'">
+                                                              <i class="fa fa-pencil-square-o"></i>
+                                                        </a>
+                                                        <a  class="btn btn-warning"
+                                                            href="'.$this->Url().'/action/themes/rename/'.$token.'/'.base64_encode($item).'"
+                                                            title="'.Panel::$lang['Rename_File'].'">
+                                                              <i class="fa fa-file-excel-o"></i>
+                                                        </a>
+                                                        <a  class="btn btn-danger"
+                                                            onclick="return confirm(\''.Panel::$lang['Are_you_sure_to_delete'].' !\')"
+                                                            href="'.$this->Url().'/action/themes/removefile/'.$token.'/'.base64_encode($item).'"
+                                                            title="'.Panel::$lang['Remove_File'].'">
+                                                              <i class="fa fa-trash-o"></i>
+                                                        </a>
+                                                      </div>
+                                                    </td>
+                                                  </tr>
+                                                ';
+                                            };
+                                            ?>
 
-				<div class="row">
-					<div class="col-lg-12">
-						<h2 class="page-header">Templates</h2>
-						<div class="table-responsive">
-							<table class="table table-bordered table-hover">
-								<thead>
-									<tr>
-										<th><?php echo Panel::$lang['Name'];?></th>
-										<th class="hidden-xs"><?php echo Panel::$lang['Directory'];?></th>
-										<th class="hidden-xs"><?php echo Panel::$lang['Extension'];?></th>
-										<th class="hidden-xs"><?php echo Panel::$lang['Size'];?></th>
-										<th style="text-align:right"><?php echo Panel::$lang['Options'];?></th>
-									</tr>
-									<?php
-									  // generate token
-									  $token = Token::generate();
-
-									  foreach ($content as $item) {
-										// size
-										$size = $this->fileSize($item);
-										// onloy show pages dir
-										$file = str_replace(THEMES, '', $item);
-										// get extension
-										$extension = File::ext($file);
-										// get name
-										$name = File::name($file);
-										// directory
-										$directory = str_replace($name.'.'.$extension, '', $file);
-										// remove backslah on templates only
-										if(preg_match('/assets/i', $directory)) $dir = $directory;
-										else $dir = str_replace('\\', '', $directory);
-
-										// show
-										echo '
-										  <tr>
-											<td>'.$name.'.'.$extension.'</td>
-											<td class="hidden-xs">'.$dir.'</td>
-											<td class="hidden-xs">'.$extension.'</td>
-											<td class="hidden-xs">'.$size.'</td>
-											<td class="clearfix">
-											  <div class="btn-group pull-right">
-												<a  class="btn btn-primary"
-													href="'.$this->Url().'/action/themes/edit/'.$token.'/'.base64_encode($item).'"
-													title="'.Panel::$lang['Edit_File'].'">
-													  <i class="fa fa-pencil-square-o"></i>
-												</a>
-												<a  class="btn btn-warning"
-													href="'.$this->Url().'/action/themes/rename/'.$token.'/'.base64_encode($item).'"
-													title="'.Panel::$lang['Rename_File'].'">
-													  <i class="fa fa-file-excel-o"></i>
-												</a>
-												<a  class="btn btn-danger"
-													onclick="return confirm(\''.Panel::$lang['Are_you_sure_to_delete'].' !\')"
-													href="'.$this->Url().'/action/themes/removefile/'.$token.'/'.base64_encode($item).'"
-													title="'.Panel::$lang['Remove_File'].'">
-													  <i class="fa fa-trash-o"></i>
-												</a>
-											  </div>
-											</td>
-										  </tr>
-										';
-									  };
-									  ?>
-								</tbody>
-							</table>
-						</div>
-					</div>
-
-				</div>
-				<!-- /.row -->
-
-				<div class="row">
-					<div class="col-lg-6 col-md-6 col-xs-6">
-						<a class="btn btn-primary" href="<?php echo $this->Url().'/action/themes/newfile/'.$token.'/'.base64_encode($directory)?>">
-						  <?php echo Panel::$lang['New_File'];?>
-						</a>
-					</div>
-					<div class="col-lg-6  col-md-6 col-xs-6 right">
-						<!-- upload  zip-->
-						<a href="#" class="btn btn-warning" data-toggle="modal" data-target="#importFile">
-						<i class="fa fa-upload"></i> - <?php echo $this::$lang['Import_zip'];?></a>
-					</div>
-					<div class="modal fade" id="importFile" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
-					  <div class="modal-dialog" role="document">
-						<div class="modal-content">
-						  <div class="modal-header">
-							<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-							<h4 class="modal-title" id="exampleModalLabel"><?php echo $this::$lang['Import_backup_files'];?></h4>
-						  </div>
-						  <div class="modal-body">
-							<form class="mediauploader" method="post"  enctype="multipart/form-data">
-								<input type="hidden" name="token" value="<?php echo Token::generate();?>"/>
-								<input type="file" name="importfile" required/>
-								<br>
-								<input type="submit" name="importZipFile" class="btn btn-primary" value="<?php echo $this::$lang['Import'];?>">
-								<a href="#" class="btn btn-danger" data-dismiss="modal"><?php echo $this::$lang['Cancel'];?></a>
-							</form>
-						  </div>
-						</div>
-					  </div>
-					</div>
-				</div>
-
-			</div>
-			<!-- /.container-fluid mt60 -->
-
-		</div>
-		<!-- /#page-wrapper -->
-
-	</div>
-	<!-- /#wrapper -->
-<?php }; ?>
-<?php $this->partial('footer',array()); ?>
+                                                </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /.row -->
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 col-xs-6">
+                                <a class="btn btn-primary" href="<?php echo $this->Url().'/action/themes/newfile/'.$token.'/'.base64_encode($directory)?>">
+                                    <?php echo Panel::$lang['New_File'];?>
+                                </a>
+                            </div>
+                            <div class="col-lg-6  col-md-6 col-xs-6 right">
+                                <!-- upload  zip-->
+                                <a href="#" class="btn btn-warning" data-toggle="modal" data-target="#importFile">
+                                    <i class="fa fa-upload"></i> -
+                                    <?php echo $this::$lang['Import_zip'];?>
+                                </a>
+                            </div>
+                            <div class="modal fade" id="importFile" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                            <h4 class="modal-title" id="exampleModalLabel"><?php echo $this::$lang['Import_backup_files'];?></h4>
+                                        </div>
+                                        <div class="modal-body">
+                                            <form class="mediauploader" method="post" enctype="multipart/form-data">
+                                                <input type="hidden" name="token" value="<?php echo Token::generate();?>" />
+                                                <input type="file" name="importfile" required/>
+                                                <br>
+                                                <input type="submit" name="importZipFile" class="btn btn-primary" value="<?php echo $this::$lang['Import'];?>">
+                                                <a href="#" class="btn btn-danger" data-dismiss="modal">
+                                                    <?php echo $this::$lang['Cancel'];?>
+                                                </a>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.container-fluid mt60 -->
+                </div>
+                <!-- /#page-wrapper -->
+            </div>
+            <!-- /#wrapper -->
+            <?php }; ?>
+                <?php $this->partial('footer',array()); ?>
