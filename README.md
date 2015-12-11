@@ -1,4 +1,4 @@
-# Morfy-Panel 2.2.0
+# Morfy-Panel 2.2.1
 
 Backend for [Morfy CMS](http://morfy.org)
 
