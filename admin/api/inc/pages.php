@@ -48,7 +48,7 @@ $p->route('/', function () use ($p) {
             $error = '';
             if (Request::post('login')) {
                 if (Request::post('csrf')) {
-                    if (Request::post('pass') == $password && Request::post('email') == $p::$site['author']['email']) {
+                    if (sha1(md5(Request::post('pass'))) == $password && Request::post('email') == $p::$site['author']['email']) {
                         @Session::start();
                         Session::set('user', $hash);
                         Request::redirect($p::$site['site_url'].'/'.$p::$site['backend_folder']);
@@ -56,6 +56,7 @@ $p->route('/', function () use ($p) {
                         // password not correct show error
                         $error = '<span class="label label-danger">'.$p::$lang['Password_Error'].'</span>';
                     }
+                    var_dump(sha1(md5(Request::post('pass'))));
                 } else {
                     // crsf
                     die('crsf detect');

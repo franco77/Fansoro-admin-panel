@@ -12,8 +12,8 @@ defined('PANEL_ACCESS') or die('No direct script access.');
 $p->route('/action/clearCache/(:any)/', function ($token) use ($p) {
         if (Session::exists('user')) {
             if (Token::check($token)) {
-                if(Dir::exists(CACHE.'/doctrine/'))Dir::delete(CACHE_PATH.'/doctrine/');
-                if(Dir::exists(CACHE.'/doctrine/'))Dir::delete(CACHE_PATH.'/fenom/');
+                if(Dir::exists(CACHE.'/doctrine/'))Dir::delete(CACHE.'/doctrine/');
+                if(Dir::exists(CACHE.'/doctrine/'))Dir::delete(CACHE.'/fenom/');
                 // set notification
                 $p->setMsg($p::$lang['Success_cache']);
                 // redirect

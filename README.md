@@ -38,8 +38,8 @@ Go to config/site.yml and **edit:**
 
 	# admin folder
 	backend_folder: 'admin'
-	# password
-	backend_password: 'demo'
+	# password sha1(md5('demo')); for first password is demo
+	backend_password: 'a69681bcf334ae130217fea4505fd3c994f5683f'
 	# Language  en,es,gr,ru 
 	backend_language: 'en'
 	# pagination pages/blocks templates etc..
