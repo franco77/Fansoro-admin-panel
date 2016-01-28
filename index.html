@@ -19,14 +19,14 @@
     </section>
 
     <section class="main-content">
-      <p><a href="https://gitter.im/morfy-cms/morfy?utm_source=badge&amp;utm_medium=badge&amp;utm_campaign=pr-badge&amp;utm_content=badge"><img src="https://badges.gitter.im/Join%20Chat.svg" alt="Join the chat at https://gitter.im/morfy-cms/morfy"></a></p>
+      <p><a href="https://gitter.im/fansoro/fansoro?utm_source=badge&amp;utm_medium=badge&amp;utm_campaign=pr-badge&amp;utm_content=badge"><img src="https://badges.gitter.im/Join%20Chat.svg" alt="Join the chat at https://gitter.im/fansoro/fansoro"></a></p>
 
 <h2>
 <a id="requirements" class="anchor" href="#requirements" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Requirements</h2>
 
-<p>Operation system: Unix, Linux, Windows, Mac OS<br>
-Middleware: PHP 5.5 or higher with PHP's <a href="http://php.net/mbstring">Multibyte String module</a><br>
-Webserver: Apache with <a href="http://httpd.apache.org/docs/current/mod/mod_rewrite.html">Mod Rewrite</a>  </p>
+<p>Operation system: Unix, Linux, Windows, Mac OS
+Middleware: PHP 5.5 or higher with PHP's <a href="http://php.net/mbstring">Multibyte String module</a>
+Webserver: Apache with <a href="http://httpd.apache.org/docs/current/mod/mod_rewrite.html">Mod Rewrite</a></p>
 
 <hr>
 
@@ -36,55 +36,53 @@ Webserver: Apache with <a href="http://httpd.apache.org/docs/current/mod/mod_rew
 <h3>
 <a id="dashboard" class="anchor" href="#dashboard" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Dashboard</h3>
 
-<p><img src="https://github.com/nakome/Fansoro-admin-panel/raw/master/screenshots/dashboard.jpg" alt="Dashboard"></p>
+<p><img src="https://raw.githubusercontent.com/nakome/Fansoro-admin-panel/master/screenshots/dashboard.jpg" alt="Dashboard"></p>
 
 <h3>
 <a id="edit-pages" class="anchor" href="#edit-pages" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Edit pages</h3>
 
-<p><img src="https://github.com/nakome/Fansoro-admin-panel/raw/master/screenshots/edit.jpg" alt="Edit"></p>
+<p><img src="https://raw.githubusercontent.com/nakome/Fansoro-admin-panel/master/screenshots/edit.jpg" alt="Edit"></p>
 
 <h3>
 <a id="edit-themes" class="anchor" href="#edit-themes" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Edit Themes</h3>
 
-<p><img src="https://github.com/nakome/Fansoro-admin-panel/raw/master/screenshots/edit2.jpg" alt="Edit"></p>
+<p><img src="https://raw.githubusercontent.com/nakome/Fansoro-admin-panel/master/screenshots/edit2.jpg" alt="Edit"></p>
 
 <h3>
 <a id="pages-section" class="anchor" href="#pages-section" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Pages section</h3>
 
-<p><img src="https://github.com/nakome/Fansoro-admin-panel/raw/master/screenshots/pages.jpg" alt="Pages"></p>
+<p><img src="https://raw.githubusercontent.com/nakome/Fansoro-admin-panel/master/screenshots/pages.jpg" alt="Pages"></p>
 
 <hr>
 
 <h2>
-<a id="instructions" class="anchor" href="#instructions" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Instructions</h2>
+<a id="instructions--very-important-to-work-" class="anchor" href="#instructions--very-important-to-work-" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Instructions ( VERY IMPORTANT TO WORK! )</h2>
 
 <p>Copy admin folder in root of website</p>
 
 <p>Go to config/site.yml and <strong>edit:</strong></p>
 
-<pre><code>author:
-  email: 'demo@gmail.com'
+<pre><code>  author:
+    email: 'demo@gmail.com'
 
-
-
-# admin folder
-backend_folder: 'admin'
-# password sha1(md5('demo')); for first password is demo
-backend_password: 'a69681bcf334ae130217fea4505fd3c994f5683f'
-# Language  en,es,gr,ru 
-backend_language: 'en'
-# pagination pages/blocks templates etc..
-backend_pagination_pages: 6
-# pagination uploads
-backend_pagination_uploads: 6
-# pagination all media 
-backend_pagination_media_all: 3
-# pagination single item
-backend_pagination_media: 16
-# admin charset
-backend_charset: UTF-8
-# root url
-site_url: 'http://localhost'
+  # admin folder
+  backend_folder: 'admin'
+  # password sha1(md5('demo')); for first password is demo
+  backend_password: 'a69681bcf334ae130217fea4505fd3c994f5683f'
+  # Language  en,es,gr,ru
+  backend_language: 'en'
+  # pagination pages/blocks templates etc..
+  backend_pagination_pages: 6
+  # pagination uploads
+  backend_pagination_uploads: 6
+  # pagination all media
+  backend_pagination_media_all: 3
+  # pagination single item
+  backend_pagination_media: 16
+  # admin charset
+  backend_charset: UTF-8
+  # root url
+  site_url: 'http://localhost'
 </code></pre>
 
 <p><strong>Note:</strong></p>
@@ -104,18 +102,18 @@ site_url: 'http://localhost'
 <h2>
 <a id="json-structure-of-media-elements" class="anchor" href="#json-structure-of-media-elements" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Json structure of media elements</h2>
 
-<pre><code>}
+<pre><code>  }
     "1447007935": {
-        "id": 1447007935,
-        "title": "The blue Worlds",
-        "desc": "Many pics of blue worlds by uspslash.com",
-        "thumb": "/public/media/album_thumbs/album_1447007935.jpg",
-        "images": "/public/media/albums/album_1447007935",
-        "tag": "blue",
-        "width": "800",
-        "height": "500"
+      "id": 1447007935,
+      "title": "The blue Worlds",
+      "desc": "Many pics of blue worlds by uspslash.com",
+      "thumb": "/public/media/album_thumbs/album_1447007935.jpg",
+      "images": "/public/media/albums/album_1447007935",
+      "tag": "blue",
+      "width": "800",
+      "height": "500"
     }
-}
+  }
 </code></pre>
 
 <p>You can use media plugin to show images:</p>
@@ -123,16 +121,16 @@ site_url: 'http://localhost'
 <p>Copy media folder in plugins folder
 Enable on system.yml</p>
 
-<pre><code>plugins
+<pre><code>  plugins
     media
 </code></pre>
 
 <hr>
 
 <h1>
-<a id="morfy-media-plugin" class="anchor" href="#morfy-media-plugin" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Morfy Media Plugin</h1>
+<a id="fansoro-media-plugin" class="anchor" href="#fansoro-media-plugin" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Fansoro Media Plugin</h1>
 
-<p>Extends Media section in frontend of Morfy Panel</p>
+<p>Extends Media section in frontend of Fansoro Panel</p>
 
 <h2>
 <a id="documentation" class="anchor" href="#documentation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Documentation</h2>
@@ -152,9 +150,9 @@ Enable on system.yml</p>
 
 <pre><code>    {extends 'partials/base.tpl'}
     {block 'content'}
-        &lt;div class="container"&gt;
-            {Action::run('Media')}
-        &lt;/div&gt;
+      &lt;div class="container"&gt;
+          {Action::run('Media')}
+      &lt;/div&gt;
     {/block}
 </code></pre>
 
