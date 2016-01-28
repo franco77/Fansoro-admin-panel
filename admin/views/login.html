@@ -1,14 +1,14 @@
 <?php $this->partial('head',array()); ?>
 
 <style>
-body { padding-top: 40px; padding-bottom: 40px; background: url('assets/img/morfy-universe-2.jpg') no-repeat center center fixed; background-size: cover; } .form-signin { max-width: 330px; padding: 15px; margin: 0 auto; } .form-signin .form-signin-heading, .form-signin .checkbox { margin-bottom: 10px; } .form-signin .checkbox { font-weight: normal; } .form-signin .form-control { position: relative; height: auto; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; padding: 10px; font-size: 16px; } .form-signin .form-control:focus { z-index: 2; } .form-signin input[type="email"] { margin-bottom: -1px; border-bottom-right-radius: 0; border-bottom-left-radius: 0; } .form-signin input[type="password"] { margin-bottom: 10px; border-top-left-radius: 0; border-top-right-radius: 0; } img { width: 100%; } .error-password { margin-top: 50px; text-align: center; } #footer{ margin-top:0; } .cover{ height:calc(100% - 20px); } @media (min-width:320px) and (orientation:landscape) { .cover{ height: auto; } } @media (min-width:768px) and (orientation:landscape) { .cover{ height:calc(100% - 20px); } }
+body { padding-top: 40px; padding-bottom: 40px; background: url('assets/img/fansoro-universe-2.jpg') no-repeat center center fixed; background-size: cover; } .form-signin { max-width: 330px; padding: 15px; margin: 0 auto; } .form-signin .form-signin-heading, .form-signin .checkbox { margin-bottom: 10px; } .form-signin .checkbox { font-weight: normal; } .form-signin .form-control { position: relative; height: auto; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; padding: 10px; font-size: 16px; } .form-signin .form-control:focus { z-index: 2; } .form-signin input[type="email"] { margin-bottom: -1px; border-bottom-right-radius: 0; border-bottom-left-radius: 0; } .form-signin input[type="password"] { margin-bottom: 10px; border-top-left-radius: 0; border-top-right-radius: 0; } img { width: 100%; } .error-password { margin-top: 50px; text-align: center; } #footer{ margin-top:0; } .cover{ height:calc(100% - 20px); } @media (min-width:320px) and (orientation:landscape) { .cover{ height: auto; } } @media (min-width:768px) and (orientation:landscape) { .cover{ height:calc(100% - 20px); } }
 
 </style>
 		<div class="container cover">
 			<div class="col-lg-12">
 			<form class="form-signin" method="POST" action="">
 				<input type="hidden" name="csrf" value="<?php echo Token::generate(); ?>">
-				<img src="assets/img/morfy-logo-white.png">
+				<img src="assets/img/fansoro-logo-white.png">
 				<label for="inputEmail" class="sr-only">Email address</label>
 				<input type="email" name="email" class="form-control" placeholder="Email address" required autofocus>
 				<label for="inputPassword" class="sr-only">Password</label>

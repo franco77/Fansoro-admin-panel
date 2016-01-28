@@ -73,6 +73,7 @@ var app = (function() {
                     autoCloseTags: true,
                     foldGutter: true
                 });
+                editor.setOption("theme", 'monokai');
             }
 
             // expand  photos
@@ -240,7 +241,7 @@ var app = (function() {
                 month = date.getMonth(),
                 day = date.getUTCDate(),
                 months = ["Jan", "Feb", "Mar", "Apr", "May", "June", "July", "Aug", "Sept", "Oct", "Nov", "Dec"];
-            _('#daymonthyear').innerHTML = day + " " + months[month] + " " + year;
+            if(_('#daymonthyear')) _('#daymonthyear').innerHTML = day + " " + months[month] + " " + year;
             this.newTime();
             setInterval(this.newTime, 1000);
         },
@@ -266,7 +267,7 @@ var app = (function() {
             var m = app.addZero(d.getMinutes());
             var s = app.addZero(d.getSeconds());
             var x = _('#hourminutesecond');
-            x.innerHTML = h + " : " + m + " : " + s;
+            if(x) x.innerHTML = h + " : " + m + " : " + s;
         }
     };
 })();

@@ -23,7 +23,7 @@ define('PARTIALS', ROOT.'/partials');
 // views
 define('VIEWS', ROOT.'/views');
 
-// Morfy paths
+// Fansoro paths
 define('ROOTBASE', rtrim(str_replace(array($backend), array(''), dirname(__FILE__)), '\\/'));
 define('LIBRARIES', ROOTBASE.'/vendor');
 define('STORAGE', ROOTBASE.'/storage');
@@ -40,9 +40,9 @@ define('MEDIA', PUBLICFOLDER.'/media');
 define('UPLOADS', PUBLICFOLDER.'/uploads');
 define('CACHE', ROOTBASE.'/cache');
 
-// Morfy panel class/routes
-include_once API.'/Morfy.panel.php';
-include_once API.'/Morfy.routes.php';
+// Fansoro panel class/routes
+include_once API.'/Fansoro.panel.php';
+include_once API.'/Fansoro.routes.php';
 
 // check if exist this folders
 if (!Dir::exists(MEDIA)) {
