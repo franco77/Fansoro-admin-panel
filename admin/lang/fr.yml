@@ -1,0 +1,95 @@
+# notificaion
+Success_edit:       'L'archive a été Mise à jour'
+Success_save:       'L'archive a été Enregistrée'
+Success_remove:     'L'archive a été Supprimée'
+Success_rename:     'L'archive a été Renommée'
+
+# login
+Password_Error: 'Erreur de mot de passe'
+# sections
+Dashboard:    'Tableau de bord'
+Pages:        'Pages'
+Media:        'Media'
+Uploads:      'Téléchargements'
+Blocks:       'Blocks'
+Themes:       'Themes'
+Plugins:      'Plugins'
+Settings:     'Paramètres'
+Support:      'Support'
+# pages
+Directory:      'Répertoire'
+Name:           'Nom'
+Extension:      'Extension'
+Options:        'Options'
+Actions:  		'Actions'
+Preview:        'Aperçu'
+Edit_File:      'Editer Fichier'
+Rename_File:    'Renommer Fichier'
+New_File:       'Nouveau Fichier'
+New_Folder:     'Nouveau Dossier'
+Remove_File:    'Supprimer Fichier'
+Remove_Folder:  'Supprimer Dossier'
+Search:  		'Chercher'
+back: 			'Retour'
+# info index for rename and delete
+exencial_file: 'Attention ! Ceci est un fichier essentiel !'
+# edit file
+Update:  'Mettre à jour'
+# new file
+Save_file:  'Enregistrer Fichier'
+# new folder
+Folder_Already_Exists: 	'Le dossier existe déjà !'
+Folder_Name_Required: 	'Le nom de dossier est requis !'
+# rename
+File_Name_Exists: 		'Le fichier existe déjà !'
+File_Name_Required: 	'Le nom du ficher est requis !'
+# delete
+Are_you_sure_to_delete: 		'Êtes-vous sûr de vouloir supprimer ?'
+Are_you_sure_to_delete_folder: 	'Êtes-vous sûr de vouloir supprimer le dossier ?'
+Remove: 						'Supprimer'
+Cancel: 						'Annuler'
+#uploads
+back_to_uploads: 			'Retour à Téléchargements'
+no_preview_for_this_file: 	'Pas d'aperçu pour ce fichier'
+Upload_file: 				'Télécharger fichier'
+Upload: 					'Télécharger'
+Size: 						'Taille'
+#media files
+Media:						'Media'
+All_media: 					'Tous les medias'
+Create_media: 				'Créer un media'
+Upload_media: 				'Télécharger des medias'
+Upload_empty: 				'Le dossier est vide'
+# media uploads
+Uploads_Media: 				'Medias téléchagargés'
+Templates: 					'Templates'
+Stylesheets: 				'Stylesheets'
+Javascript: 				'Javascript'
+
+# Themes
+Zip_Public: 	'Zip Public'
+Zip_Storage: 'Zip Storage'
+Zip_Themes: 	'Zip Themes'
+
+#config
+Config: 'Configuration'
+Siteyml: 'Site'
+Systemyml: 'System'
+
+# backups
+Backups: 					'Sauvegarde'
+New_Backup: 				'Nouvelle Sauvegarde'
+#diagnostic
+Diagnostic: 				'Diagnostique'
+
+# 404 not found
+Error_page: 				'La page demandée n'a pas été trouvée dans l'admin Fansoro.'
+# cache
+Clear_cache: 'Vider le cache'
+Success_cache: 'Le cache a été vidé'
+# modal and imports
+Import: 'Importer'
+Import_blog_files: 'Importer fichiers de blog'
+Import_backup_files: 'Importer fichiers de sauvegarde'
+Import_zip: 'Importer Zip'
+Blog: 'Blog'
